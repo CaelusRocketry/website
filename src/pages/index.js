@@ -8,14 +8,14 @@ function IndexPage() {
         <Layout>
             <SEO keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]} title="Home" />
 
-            <section className="text-center">
-                <h2 className="bg-yellow-400 text-2xl font-bold inline-block my-8 p-3">
-                    Hey there! Welcome to your first Gatsby site.
+            <section className="text-left font-sans">
+                <h2 className="bg-accent text-2x1 font-bold inline-block my-5 p-3 text-primary-light">
+                    Hey There! Welcome to our website.
                 </h2>
 
                 <p className="leading-loose">
                     This is a barebones starter for Gatsby styled using{` `}
-                    <a className="font-bold no-underline text-gray-900" href="https://tailwindcss.com/">
+                    <a className="font-bold no-underline text-black-900" href="https://tailwindcss.com/">
                         Tailwind
                     </a>
                     , a utility-first CSS framework.
