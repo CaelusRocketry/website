@@ -14,7 +14,8 @@
         "prop-types": "15.7.2",
         "react": "16.12.0",
         "react-dom": "16.12.0",
-        "react-helmet": "5.2.1"
+        "react-helmet": "5.2.1",
+        "typescript": "^3.8.3"
     },
     "keywords": [
         "gatsby",
@@ -37,7 +38,7 @@
         "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
     },
     "devDependencies": {
-        "@tailwindcss/custom-forms": "0.2.1",
+        "@tailwindcss/custom-forms": "^0.2.1",
         "autoprefixer": "9.7.4",
         "babel-eslint": "10.0.3",
         "cssnano": "4.1.10",
