@@ -1,28 +1,54 @@
-import React from 'react';
+import React from "react";
+import { graphql } from "gatsby";
+import BackgroundImage from "gatsby-background-image";
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-function IndexPage() {
-    return (
-        <Layout>
-            <SEO keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]} title="Home" />
+function IndexPage({ data }) {
+  return (
+    <Layout>
+      <SEO
+        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        title="Home"
+      />
 
-            <section className="text-left font-sans">
-                <h2 className="bg-accent text-2x1 font-bold inline-block my-5 p-3 text-primary-light">
-                    Hey There! Welcome to our website.
-                </h2>
-
-                <p className="leading-loose">
-                    This is a barebones starter for Gatsby styled using{` `}
-                    <a className="font-bold no-underline text-black-900" href="https://tailwindcss.com/">
-                        Tailwind
-                    </a>
-                    , a utility-first CSS framework.
-                </p>
-            </section>
-        </Layout>
-    );
+      <section
+        className="flex flex-col bg-primary-dark justify-center"
+        style={{ height: "90vh" }}
+      >
+        <div className="p-8 text-center">
+          <h2 className="md:text-5xl text-4xl font-bold border-b-4 border-dashed border-accent inline-block mb-4">
+            Project Caelus
+          </h2>
+          <p className="md:text-2xl text-xl">
+            The first high-school group to take a liquid-fuel rocket to space.
+          </p>
+        </div>
+        <BackgroundImage
+          fluid={data.file.childImageSharp.fluid}
+          className="md:mt-0 -mt-16"
+          style={{
+            height: "50vh",
+            width: "100%",
+            backgroundSize: "contain",
+          }}
+        />
+      </section>
+    </Layout>
+  );
 }
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "index/hero.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
