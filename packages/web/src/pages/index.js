@@ -35,6 +35,10 @@ function IndexPage({ data }) {
           }}
         />
       </section>
+      <section>
+        {data.posts.nodes[0].title}
+        {data.posts.nodes[0].description}
+      </section>
     </Layout>
   );
 }
@@ -46,6 +50,12 @@ export const query = graphql`
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
         }
+      }
+    }
+    posts: allSanityPost {
+      nodes {
+        title
+        description
       }
     }
   }

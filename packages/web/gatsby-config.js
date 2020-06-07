@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Project Caelus`,
@@ -35,6 +37,14 @@ module.exports = {
           require(`autoprefixer`),
           require(`cssnano`),
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: process.env.GATSBY_SANITY_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+        token: process.env.SANITY_TOKEN,
       },
     },
     `gatsby-plugin-offline`,
