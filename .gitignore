@@ -10,6 +10,9 @@ yarn-error.log
 # macOS
 .DS_Store
 
+# Environment variables
+.env
+
 # Deployment-specific configs
 now.json
 
