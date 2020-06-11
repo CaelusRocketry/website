@@ -4,6 +4,7 @@ import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Subheading from "../components/subheading";
 
 function IndexPage({ data }) {
   return (
@@ -34,11 +35,17 @@ function IndexPage({ data }) {
             backgroundSize: "contain",
           }}
         />
+
       </section>
-      <section>
-        {data.posts.nodes[0].title}
-        {data.posts.nodes[0].description}
+      
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading={data.posts.nodes[1].title}>{data.posts.nodes[1].description}</Subheading>
       </section>
+
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Our Timeline"></Subheading>
+      </section>
+      
     </Layout>
   );
 }
