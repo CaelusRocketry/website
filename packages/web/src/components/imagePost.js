@@ -4,6 +4,19 @@ import React from 'react'
 
 const ImagePost = (props) => (
     <div class='text-center'>
+        <article>
+            <h1 style={{ 
+                color: 'white', 
+                fontFamily: 'Open Sans, sans-serif',
+                fontSize: '30px',
+                fontWeight: 300,
+                lineHeight: '32px',
+                margin: '20px 0px 18px',
+                textAlign: 'center'
+            }}>
+                {props.header}</h1>
+            <p class='text-justify'>{props.desc}</p>
+        </article>
         <div
             style={{
                 backgroundColor: "#f1111d",
@@ -25,27 +38,48 @@ const ImagePost = (props) => (
                 {props.children}
             </div>
         </div>
-        <article
-            style={{
-                //position: 'relative',
-                //left: 400,
-                //bottom: 370
-            }}
-            class='content-end'
-        >
-            <h1 style={{ 
-                color: '#111', 
-                fontFamily: 'Open Sans, sans-serif',
-                fontSize: '30px',
-                fontWeight: 300,
-                lineHeight: '32px',
-                margin: '0 0 72px',
-                textAlign: 'center'
-            }}>
-                {props.header}</h1>
-            <p>{props.desc}</p>
-        </article>
     </div>
 )
 
 export default ImagePost
+
+// OLD ATTEMPT
+/*
+    <div class='text-center'>
+        <article>
+            <h1 style={{ 
+                color: 'white', 
+                fontFamily: 'Open Sans, sans-serif',
+                fontSize: '30px',
+                fontWeight: 300,
+                lineHeight: '32px',
+                margin: '20px 0px 18px',
+                textAlign: 'center'
+            }}>
+                {props.header}</h1>
+            <p class='text-justify break-all ...'>{props.desc}</p>
+        </article>
+        <div
+            style={{
+                backgroundColor: "#f1111d",
+                padding: 0,
+                borderRadius: 10,
+                margin: 5,
+                position: 'relative',
+                width: '35%',
+                height: '25%'
+            }}
+            class='inline-block'
+        >
+            <div 
+                style={{
+                    position:'relative', 
+                    left: 20,
+                    top: 20
+                }}
+            >
+                {props.children}
+            </div>
+        </div>
+    </div>
+*/

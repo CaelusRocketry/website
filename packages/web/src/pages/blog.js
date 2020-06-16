@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import ImagePost from "../components/imagePost";
+import SubPost from "../components/subpost"
 import Img from "gatsby-image"
 
 const BlogPage = ({ data }) => (
@@ -10,14 +11,37 @@ const BlogPage = ({ data }) => (
     <SEO title="Blog" />
 
     <div style={{ textAlign: "center" }}>
-      <h2 className="font-mono text-lg text-gray-800 text-center" /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/>
-        Blog
+      <h2 className="font-serif text-3xl text-white-800 text-center" /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/>
+        -- Blog --
       </h2>
     </div>
 
-    <ImagePost header="Programming is awesome" desc={data.posts.nodes[0].description}>
+    <ImagePost header={data.posts.nodes[0].title} desc={data.posts.nodes[0].description}>
       <Img fluid={data.posts.nodes[0].image.asset.fluid} />
     </ImagePost>
+
+    <section class='flex'>
+      <div class='flex-auto'>
+        <SubPost>
+          <Img fixed={data.posts.nodes[0].image.asset.fixed} />
+        </SubPost>
+      </div>
+      <div class='flex-auto'>
+        <SubPost>
+          <Img fixed={data.posts.nodes[0].image.asset.fixed} />
+        </SubPost>
+      </div>
+      <div class='flex-auto'>
+        <SubPost>
+          <Img fixed={data.posts.nodes[0].image.asset.fixed} />
+        </SubPost>
+      </div>
+      <div class='flex-auto'>
+        <SubPost>
+          <Img fixed={data.posts.nodes[0].image.asset.fixed} />
+        </SubPost>
+      </div>
+    </section>
   </Layout>
 );
 
@@ -33,6 +57,9 @@ export const query = graphql`
           asset {
             fluid(maxWidth: 10) {
               ...GatsbySanityImageFluid
+            }
+            fixed(width: 300) {
+              ...GatsbySanityImageFixed
             }
           }
         }
