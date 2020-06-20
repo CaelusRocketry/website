@@ -5,7 +5,6 @@ import SEO from "../components/seo";
 import ImagePost from "../components/imagePost";
 import SubPost from "../components/subpost"
 import Img from "gatsby-image"
-import { Link } from "gatsby"
 
 const BlogPage = ({ data }) => (
   <Layout>
