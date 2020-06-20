@@ -16,31 +16,18 @@ const BlogPage = ({ data }) => (
       </h2>
     </div>
 
-    <ImagePost header={data.posts.nodes[0].title} desc={data.posts.nodes[0].description}>
+    <ImagePost header={data.posts.nodes[1].title} desc={data.posts.nodes[1].description}>
       <Img fluid={data.posts.nodes[1].image.asset.fluid} />
     </ImagePost>
 
     <section class='flex'>
-      <div class='flex-auto'>
-        <SubPost header="Example">
-          <Img fixed={data.posts.nodes[1].image.asset.fixed}/>
-        </SubPost>
-      </div>
-      <div class='flex-auto'>
-        <SubPost header="Example">
-          <Img fixed={data.posts.nodes[1].image.asset.fixed} />
-        </SubPost>
-      </div>
-      <div class='flex-auto'>
-        <SubPost header="Example">
-          <Img fixed={data.posts.nodes[1].image.asset.fixed} />
-        </SubPost>
-      </div>
-      <div class='flex-auto'>
-        <SubPost header="Example">
-          <Img fixed={data.posts.nodes[1].image.asset.fixed} />
-        </SubPost>
-      </div>
+      {[1, 1, 1, 1].map((index) => (
+        <div class='flex-auto'>
+          <SubPost header="Example">
+            <Img fixed={data.posts.nodes[index].image.asset.fixed}/>
+          </SubPost>
+        </div>
+      ))}
     </section>
   </Layout>
 );
