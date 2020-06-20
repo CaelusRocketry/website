@@ -13,5 +13,15 @@ export default {
       name: "description",
       type: "text",
     },
+    {
+      title: "Image",
+      name: "image",
+      type: "image"
+    },
+    {
+      title: "Date",
+      name: "date",
+      type: "date"
+    }
   ],
 };

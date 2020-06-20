@@ -1,19 +1,12 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 const SubPost = (props) => (
     <div class='text-center' style={{marginRight: 20}}>
         <article>
-            <h1 style={{ 
-                color: 'white', 
-                fontFamily: 'Open Sans, sans-serif',
-                fontSize: '30px',
-                fontWeight: 300,
-                lineHeight: '32px',
-                margin: '20px 0px 18px',
-                textAlign: 'center'
-            }}>
-                {props.header}</h1>
-            <p class='text-justify'>{props.desc}</p>
+            <h1 class="font-serif text-3xl text-white-800 text-center mt-10">
+                <Link to="/contact/" class='hover:text-red-600' /*Right now links to Contact page but will later link to respect blog post*/>{props.header}</Link>
+            </h1>
         </article>
         <div
             style={{
