@@ -24,4 +24,13 @@ export default {
       type: "date"
     }
   ],
+  orderings: [
+    {
+      title: "Date",
+      name: 'dateDesc',
+      by: [
+        {field: "date", direction: 'desc'}
+      ]
+    }
+  ]
 };
