@@ -19,7 +19,7 @@ const Subheading = (props) => (
             padding: 10
          }}>
         --- {props.heading} --- </h1>
-        <p style={{ textAlign: 'center'}} > {props.children}</p>
+        <p className="container mx-auto" style={{ textAlign: 'center'}} > {props.children}</p>
 
     </div>
 )
