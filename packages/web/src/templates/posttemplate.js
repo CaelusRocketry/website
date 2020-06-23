@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from "../components/layout"
 
-const PostTemplate = (props) => (
+const PostTemplate = ({ data: { post } }) => (
     <Layout>
-        <SEO title={props.title} />
-
+        <SEO title={`$(post.title)`} />
+        {post.title}
         
     </Layout>
 )
