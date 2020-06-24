@@ -25,15 +25,8 @@ function AboutPage({ data }) {
           }}
         />
             <section className="flex flex-col bg-primary-dark justify-center">
-                <Subheading heading={data.posts.nodes[2].title}>{data.posts.nodes[2].description}</Subheading>
-            </section>
-
-            <section className="flex flex-col bg-primary-dark justify-center">
-                <Subheading heading={data.posts.nodes[3].title}>{data.posts.nodes[3].description}</Subheading>
-            </section>
-
-
-            <section className="flex flex-col bg-primary-dark justify-center">
+                <Subheading heading={data.posts.nodes[5].title}>{data.posts.nodes[5].description}</Subheading>
+                <Subheading heading={data.posts.nodes[1].title}>{data.posts.nodes[1].description}</Subheading>
                 <Subheading heading="Subsystems"></Subheading>
             </section>
 
@@ -46,7 +39,7 @@ export const query = graphql`
     file(relativePath: { eq: "team.jpg" }) {
         childImageSharp {
             fluid {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid
             }
         }
     },

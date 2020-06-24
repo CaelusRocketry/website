@@ -5,6 +5,7 @@ import BackgroundImage from "gatsby-background-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
+import Footer from "../components/footer";
 import { Timeline, TimelineItem }  from 'vertical-timeline-component-for-react';
 
 
@@ -159,6 +160,10 @@ function IndexPage({ data }) {
           </TimelineItem>
 
         </Timeline>
+      </section>
+
+      <section>
+        <Footer>hi</Footer>
       </section>
       
     </Layout>
