@@ -5,6 +5,7 @@
     "author": "Project Caelus",
     "dependencies": {
         "@material-ui/core": "^4.10.2",
+        "@sanity/block-content-to-react": "^2.0.7",
         "dotenv": "^8.2.0",
         "gatsby": "2.19.12",
         "gatsby-background-image": "^1.1.1",
