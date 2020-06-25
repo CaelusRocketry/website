@@ -1,15 +1,30 @@
 import React from 'react'
 import Layout from "../components/layout"
+import Subheading from "../components/subheading";
 import SEO from "../components/seo"
+import BlockContent from '@sanity/block-content-to-react'
+import Img from 'gatsby-image'
 
 const PostTemplate = ({ data: { post } }) => (
     <Layout
         seo={<SEO title={`${post.title} | Blog`} keywords={[`blog`, `post`]} />}
     >
+        <header class='font-serif text-center text-4xl'>-- {post.title} --</header>
         <div class='text-center'>
-            {post.title}<br/>
-            {post.overview}
+            <Img fixed={post.titleImage.asset.fixed} />
         </div>
+        <section className="flex flex-col bg-primary-dark justify-center">
+            <Subheading heading="Overview">{post.overview}</Subheading>
+            <Subheading heading="Body">
+                <BlockContent
+                blocks={post._rawBody || []}
+                serializers={{
+                }}
+                projectId={process.env.GATSBY_SANITY_ID}
+                dataset={process.env.GATSBY_SANITY_DATASET}
+                />
+            </Subheading>
+        </section>
     </Layout>
 )
 
@@ -19,13 +34,14 @@ export const query = graphql`
       title
       overview
       datetime(formatString: "")
+      _rawBody
       slug {
         current
       }
       titleImage {
         asset {
-          fluid(maxWidth: 1920) {
-            ...GatsbySanityImageFluid
+          fixed(width: 500) {
+            ...GatsbySanityImageFixed
           }
         }
       }

@@ -14,7 +14,7 @@ const ImagePost = (props) => {
 
     return (
         <div class='text-center w-full flex items-start transition duration-500 ease-in-out text-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-105'>
-            <Link to="/contact/" class='inline-block w-2/5' /*Right now links to Contact page but will later link to respect blog post*/>
+            <Link to={"/blog/" + props.slug} class='inline-block w-2/5' /*Right now links to Contact page but will later link to respect blog post*/>
                 <div
                 style={{
                     backgroundColor: "#f1111d",

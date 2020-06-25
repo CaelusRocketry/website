@@ -22,14 +22,14 @@ const BlogPage = ({ data }) => {
         </h2>
       </div>
 
-      <ImagePost header={data.blogPosts.nodes[0].title} desc={data.blogPosts.nodes[0].overview}>
+      <ImagePost header={data.blogPosts.nodes[0].title} desc={data.blogPosts.nodes[0].overview} slug={data.blogPosts.nodes[0].slug.current}>
         <Img fluid={data.blogPosts.nodes[0].titleImage.asset.fluid} />
       </ImagePost>
 
       <section class='flex'>
         {[1, 1, 1, 1].map((index) => (
           <div class='flex-auto'>
-            <SubPost header="Example">
+            <SubPost header={data.blogPosts.nodes[index].title} slug={data.blogPosts.nodes[index].slug.current}>
               <Img fixed={data.blogPosts.nodes[index].titleImage.asset.fixed}/>
             </SubPost>
           </div>
@@ -54,6 +54,9 @@ export const query = graphql`
           _type
           style
           list
+        }
+        slug {
+          current
         }
         titleImage {
           asset {
