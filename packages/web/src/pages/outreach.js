@@ -1,34 +1,8 @@
-import React from "react";
+import React from 'react';
+import BackgroundImage from "gatsby-background-image";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-// import Subheading from "../components/subheading";
-
-const Subheading = (props) => (
-  <div
-      style={{
-
-          padding: 20,
-          borderRadius: 10,
-          margin: 50,
-      }}
-      className='inline-block'
-  >
-      <h1 style={{ 
-          fontSize: '50px',
-          fontWeight: 300,
-          textAlign: 'center',
-          padding: 10
-       }}>
-      --- {props.heading} --- </h1>
-      <div className="flex flex-col mx-auto">
-        <p style={{ textAlign: 'left'}}> {props.children}</p>
-        
-      </div>
-      
-
-  </div>
-)
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 function OutreachPage({ data }) {
   return (
@@ -36,10 +10,23 @@ function OutreachPage({ data }) {
       <SEO title="Outreach" />
     
       <section className="flex flex-col bg-primary-dark justify-center">
-        {/* <Subheading heading={data.posts.nodes[4].title}>{data.posts.nodes[4].description}</Subheading> */}
-        <Subheading heading={data.posts.nodes[4].title}>
-            <p>Seeing as all schools in Virginia are closed amidst the global pandemic, it is crucial all of us students.</p>
-        </Subheading>
+        <h1 style={{ fontSize: '50px', fontWeight: 300, textAlign: 'center', padding: 10, marginTop: 50}}>{data.posts.nodes[0].title}</h1>
+        <section class='flex container max-w-5xl mx-auto'>
+            <div class='flex-auto container md:w-1/2 justify-center' style={{margin: 5}}>
+                <p className="" style={{ textAlign: 'left'}} >{data.posts.nodes[0].description}</p>
+            </div>
+            <div class='flex-auto container md:w-1/2 justify-center' style={{margin: 5}}>
+                <BackgroundImage
+                  fluid={data.file.childImageSharp.fluid}
+                  className="md:mt-0 -mt-16"
+                  style={{
+                    height: "55vh",
+                    width: "100%",
+                    backgroundSize: "contain",
+                  }}
+                />
+            </div>
+        </section>
       </section>
     </Layout>
   );
@@ -47,10 +34,10 @@ function OutreachPage({ data }) {
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "team.jpg" }) {
+    file(relativePath: { eq: "Flyer.png" }) {
         childImageSharp {
             fluid {
-            ...GatsbyImageSharpFluid_tracedSVG
+            ...GatsbyImageSharpFluid
             }
         }
     },
