@@ -27,7 +27,7 @@ const BlogPage = ({ data }) => {
       </ImagePost>
 
       <section class='flex'>
-        {[1].map((index) => (
+        {[1, 1, 1, 1].map((index) => (
           <div class='flex-auto'>
             <SubPost header="Example">
               <Img fixed={data.blogPosts.nodes[index].titleImage.asset.fixed}/>

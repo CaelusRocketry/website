@@ -13,8 +13,8 @@ const ImagePost = (props) => {
 */
 
     return (
-        <div class='text-center w-full flex items-start'>
-            <Link to="/contact/" class='hover:text-red-600 inline-block w-2/5' /*Right now links to Contact page but will later link to respect blog post*/>
+        <div class='text-center w-full flex items-start transition duration-500 ease-in-out text-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-105'>
+            <Link to="/contact/" class='inline-block w-2/5' /*Right now links to Contact page but will later link to respect blog post*/>
                 <div
                 style={{
                     backgroundColor: "#f1111d",
@@ -34,15 +34,17 @@ const ImagePost = (props) => {
                         class = 'border-solid border-2 border-black'
                     >
                         {props.children}
-                    </div>
+                    </div>  
                 </div>
             </Link>
             <div class="inline-block w-2/5" style={{wordWrap: 'break-word'}}>
-                <h1 class="font-serif text-3xl text-white-800 text-center mb-2">
-                    {props.header}
-                </h1>
-                
-                <p class='justify-center mx-10 mt-5 text-lg' /*'text-justify'*/>{props.desc}</p>
+                <Link to="/contact/">
+                    <h1 class="font-serif text-3xl text-white-800 text-center mb-2">
+                        {props.header}
+                    </h1>
+                    
+                    <p class='justify-center mx-10 mt-5 text-lg' /*'text-justify'*/>{props.desc}</p>
+                </Link>
             </div>
         </div>
     );
