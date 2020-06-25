@@ -38,7 +38,7 @@ const ImagePost = (props) => {
                 </div>
             </Link>
             <div class="inline-block w-2/5" style={{wordWrap: 'break-word'}}>
-                <Link to="/contact/">
+                <Link to={"/blog/" + props.slug}>
                     <h1 class="font-serif text-3xl text-white-800 text-center mb-2">
                         {props.header}
                     </h1>
