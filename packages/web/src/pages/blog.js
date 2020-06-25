@@ -6,12 +6,27 @@ import ImagePost from "../components/imagePost";
 import SubPost from "../components/subpost"
 import Img from "gatsby-image"
 import BlockContent from '@sanity/block-content-to-react'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const BlogPage = ({ data }) => {
 
   
 /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/
-
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2
+    }
+  };
   return (
     <Layout>
       <SEO title="Blog" />
@@ -26,7 +41,7 @@ const BlogPage = ({ data }) => {
         <Img fluid={data.blogPosts.nodes[0].titleImage.asset.fluid} />
       </ImagePost>
 
-      <section class='flex'>
+      <Carousel responsive={responsive}>
         {[1, 1, 1, 1].map((index) => (
           <div class='flex-auto'>
             <SubPost header={data.blogPosts.nodes[index].title} slug={data.blogPosts.nodes[index].slug.current}>
@@ -34,7 +49,7 @@ const BlogPage = ({ data }) => {
             </SubPost>
           </div>
         ))}
-      </section>
+      </Carousel>
     </Layout>
   )
 
@@ -72,3 +87,16 @@ export const query = graphql`
     }
   }
 `;
+
+/*
+OLD CODE
+      <section class='flex'>
+        {[1, 1, 1, 1].map((index) => (
+          <div class='flex-auto'>
+            <SubPost header={data.blogPosts.nodes[index].title} slug={data.blogPosts.nodes[index].slug.current}>
+              <Img fixed={data.blogPosts.nodes[index].titleImage.asset.fixed}/>
+            </SubPost>
+          </div>
+        ))}
+      </section>
+*/
