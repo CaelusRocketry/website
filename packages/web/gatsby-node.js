@@ -20,14 +20,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const query = await graphql(`
         {
-            posts: allSanityPost {
-                edges {
-                    node {
-                        slug {
-                            current
-                        }
-                        id: _id
+            posts: allSanityBlogPost {
+                nodes {
+                    slug {
+                        current
                     }
+                    id: _id
                 }
             }
         }
@@ -37,14 +35,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         return
     }
 
-    const Posts = query.data.posts.edges
+    const Posts = query.data.posts.nodes
     const PostTemplate = path.resolve('./src/templates/posttemplate.js')
     Posts.forEach(post => {
         createPage({
-            path: `/blog/${post.node.slug.current}`,
+            path: `/blog/${post.slug.current}`,
             component: PostTemplate,
             context: {
-                id: post.node.id
+                id: post.id
             }
         })
     })

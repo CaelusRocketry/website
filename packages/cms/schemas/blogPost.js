@@ -24,10 +24,23 @@ export default {
         type: "image"
       },
       {
-          title: "Body",
-          name: "body",
-          type: "array",
-          of: [{type: 'block'}, {type: 'image'}]
+        title: "Body",
+        name: "body",
+        type: "array",
+        of: [{type: 'block'}, {type: 'image'}]
+      },
+      {
+        title: 'Slug',
+        name: 'slug',
+        type: 'slug',
+        options: {
+          source: 'title',
+          maxLength: 200, // will be ignored if slugify is set
+          slugify: input => input
+                               .toLowerCase()
+                               .replace(/\s+/g, '-')
+                               .slice(0, 200)
+        }
       }
     ],
     orderings: [
