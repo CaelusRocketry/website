@@ -2,10 +2,10 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Subheading from "../components/subheading";
 import ImagePost from "../components/imagePost";
 import SubPost from "../components/subpost"
 import Img from "gatsby-image"
-import BlockContent from '@sanity/block-content-to-react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -27,25 +27,33 @@ const BlogPage = ({ data }) => {
       items: 2
     }
   };
+
+  const posts = data.blogPosts.nodes;
+
   return (
     <Layout>
       <SEO title="Blog" />
 
+      {/*
       <div style={{ textAlign: "center" }}>
         <h2 className="font-serif text-4xl text-white-800 text-center mb-10">
           -- Blog --
         </h2>
       </div>
+      */}
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Blog"></Subheading>
+      </section>
 
-      <ImagePost header={data.blogPosts.nodes[0].title} desc={data.blogPosts.nodes[0].overview} slug={data.blogPosts.nodes[0].slug.current}>
-        <Img fluid={data.blogPosts.nodes[0].titleImage.asset.fluid} />
+      <ImagePost header={posts[0].title} desc={posts[0].overview} slug={posts[0].slug.current}>
+        <Img fluid={posts[0].titleImage.asset.fluid} />
       </ImagePost>
 
       <Carousel responsive={responsive}>
-        {[1, 1, 1, 1].map((index) => (
+        {posts.slice(1).map((post) => (
           <div class='flex-auto'>
-            <SubPost header={data.blogPosts.nodes[index].title} slug={data.blogPosts.nodes[index].slug.current}>
-              <Img fixed={data.blogPosts.nodes[index].titleImage.asset.fixed}/>
+            <SubPost header={post.title} slug={post.slug.current}>
+              <Img fixed={post.titleImage.asset.fixed}/>
             </SubPost>
           </div>
         ))}
@@ -93,8 +101,8 @@ OLD CODE
       <section class='flex'>
         {[1, 1, 1, 1].map((index) => (
           <div class='flex-auto'>
-            <SubPost header={data.blogPosts.nodes[index].title} slug={data.blogPosts.nodes[index].slug.current}>
-              <Img fixed={data.blogPosts.nodes[index].titleImage.asset.fixed}/>
+            <SubPost header={posts[index].title} slug={posts[index].slug.current}>
+              <Img fixed={posts[index].titleImage.asset.fixed}/>
             </SubPost>
           </div>
         ))}
