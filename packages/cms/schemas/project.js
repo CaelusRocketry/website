@@ -46,6 +46,11 @@ export default {
       of: [{ type: "block" }, { type: "image" }],
     },
     {
+      title: "Completion Date",
+      name: "completionDate",
+      type: "datetime",
+    },
+    {
       title: "Statistics",
       name: "statistics",
       type: "array",

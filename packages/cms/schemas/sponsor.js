@@ -26,5 +26,10 @@ export default {
         layout: "dropdown",
       },
     },
+    {
+      title: "Link",
+      name: "link",
+      type: "url",
+    },
   ],
 };

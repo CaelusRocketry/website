@@ -4,7 +4,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
-import settings from "./schemas/settings";
+import settings, { galleryImage } from "./schemas/settings";
 import post from "./schemas/post";
 import member from "./schemas/member";
 import project, { statistic } from "./schemas/project";
@@ -19,6 +19,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     settings,
+    galleryImage,
 
     post,
 
