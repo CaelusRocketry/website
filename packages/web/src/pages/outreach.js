@@ -35,7 +35,7 @@ function OutreachPage({ data }) {
             style={{ margin: 5 }}
           >
             <BackgroundImage
-              fluid={data.file.childImageSharp.fluid}
+              fluid={data.posts.nodes[0].image.asset.fluid}
               className="md:mt-0 -mt-16"
               style={{
                 height: "55vh",
@@ -52,17 +52,17 @@ function OutreachPage({ data }) {
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "Flyer.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     posts: allSanityPost {
       nodes {
         title
         description
+        image {
+          asset {
+            fluid{
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
     }
   }
