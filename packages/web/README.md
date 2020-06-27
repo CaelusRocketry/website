@@ -2,8 +2,8 @@
 
 ## Technologies
 
-* [Gatsby](https://www.gatsbyjs.org/): "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps." 
-* [Tailwind CSS](https://tailwindcss.com): "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces."
+- [Gatsby](https://www.gatsbyjs.org/): "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps."
+- [Tailwind CSS](https://tailwindcss.com): "Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces."
 
 ## Development
 
@@ -28,4 +28,3 @@ npm run develop
 ### Build
 
 Use `npm run build` to build your site for production.
-

@@ -16,7 +16,7 @@ export default {
     {
       title: "Image",
       name: "image",
-      type: "image"
+      type: "image",
     },
     /*{
       title: "Date",
@@ -45,5 +45,5 @@ export default {
         {field: "date", direction: 'desc'}
       ]
     }*/
-  ]
+  ],
 };

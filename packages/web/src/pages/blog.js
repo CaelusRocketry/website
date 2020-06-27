@@ -4,28 +4,26 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import ImagePost from "../components/imagePost";
-import SubPost from "../components/subpost"
-import Img from "gatsby-image"
+import SubPost from "../components/subpost";
+import Img from "gatsby-image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 const BlogPage = ({ data }) => {
-
-  
-/*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/
+  /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3
+      items: 3,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2
-    }
+      items: 2,
+    },
   };
 
   const posts = data.blogPosts.nodes;
@@ -45,23 +43,26 @@ const BlogPage = ({ data }) => {
         <Subheading heading="Blog"></Subheading>
       </section>
 
-      <ImagePost header={posts[0].title} desc={posts[0].overview} slug={posts[0].slug.current}>
+      <ImagePost
+        header={posts[0].title}
+        desc={posts[0].overview}
+        slug={posts[0].slug.current}
+      >
         <Img fluid={posts[0].titleImage.asset.fluid} />
       </ImagePost>
 
       <Carousel responsive={responsive}>
         {posts.slice(1).map((post) => (
-          <div class='flex-auto'>
+          <div class="flex-auto">
             <SubPost header={post.title} slug={post.slug.current}>
-              <Img fixed={post.titleImage.asset.fixed}/>
+              <Img fixed={post.titleImage.asset.fixed} />
             </SubPost>
           </div>
         ))}
       </Carousel>
     </Layout>
-  )
-
-}
+  );
+};
 
 export default BlogPage;
 
