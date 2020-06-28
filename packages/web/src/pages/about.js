@@ -37,17 +37,18 @@ function AboutPage({ data }) {
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "team.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    posts: allSanityPost {
+    projects: allSanityMembers(sort: {fields: completionDate}) {
       nodes {
-        title
-        description
+        Name
+        Position
+        bio: _rawBio
+        image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
     }
   }

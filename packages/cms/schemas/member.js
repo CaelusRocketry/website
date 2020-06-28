@@ -17,6 +17,11 @@ export default {
       },
     },
     {
+      title: "Leadership",
+      name: "leadership",
+      type: "boolean",
+    },
+    {
       title: "Position",
       name: "Position",
       type: "string",
