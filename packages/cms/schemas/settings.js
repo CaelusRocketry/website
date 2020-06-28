@@ -23,42 +23,13 @@ export default {
     {
       title: "Team Image",
       name: "teamImage",
-      type: "image",
-      fields: [
-        {
-          title: "Caption",
-          name: "caption",
-          type: "string",
-          options: {
-            isHighlighted: true,
-          },
-        },
-      ],
+      type: "picture",
     },
     {
       title: "Gallery Images",
       name: "gallery",
       type: "array",
-      of: [
-        {
-          type: "image",
-          fields: [
-            {
-              title: "Title",
-              name: "title",
-              type: "string",
-            },
-            {
-              title: "Caption",
-              name: "caption",
-              type: "string",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
-        },
-      ],
+      of: [{ type: "picture" }],
     },
   ],
 };
