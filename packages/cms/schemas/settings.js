@@ -1,26 +1,3 @@
-export const galleryImage = {
-  title: "Gallery Image",
-  name: "galleryImage",
-  type: "object",
-  fields: [
-    {
-      title: "Title",
-      name: "title",
-      type: "string",
-    },
-    {
-      title: "Image",
-      name: "image",
-      type: "image",
-    },
-    {
-      title: "Description",
-      name: "description",
-      type: "text",
-    },
-  ],
-};
-
 export default {
   title: "Settings",
   name: "settings",
@@ -45,20 +22,43 @@ export default {
     },
     {
       title: "Team Image",
-      name: "teamPicture",
+      name: "teamImage",
       type: "image",
-    },
-    {
-      title: "About",
-      name: "about",
-      type: "array",
-      of: [{ type: "block" }],
+      fields: [
+        {
+          title: "Caption",
+          name: "caption",
+          type: "string",
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
     },
     {
       title: "Gallery Images",
       name: "gallery",
       type: "array",
-      of: [{ type: "galleryImage" }],
+      of: [
+        {
+          type: "image",
+          fields: [
+            {
+              title: "Title",
+              name: "title",
+              type: "string",
+            },
+            {
+              title: "Caption",
+              name: "caption",
+              type: "string",
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 };
