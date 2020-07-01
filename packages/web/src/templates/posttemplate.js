@@ -4,6 +4,7 @@ import Subheading from "../components/subheading";
 import SEO from "../components/seo";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
+import 'github-markdown-css'
 
 const PostTemplate = ({ data: { post } }) => (
   <Layout
@@ -13,7 +14,7 @@ const PostTemplate = ({ data: { post } }) => (
     <div class="text-center">
       <Img fixed={post.image.asset.fixed} />
     </div>
-    <section className="flex flex-col bg-primary-dark justify-center">
+    <section className="flex flex-col bg-primary-dark justify-center markdown-body">
       <Subheading heading="Overview">{post.description}</Subheading>
       <Subheading heading="Body">
         <BlockContent
