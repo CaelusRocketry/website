@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       title: "Name",
-      name: "Name",
+      name: "name",
       type: "string",
     },
     {
@@ -17,8 +17,13 @@ export default {
       },
     },
     {
+      title: "Leadership",
+      name: "leadership",
+      type: "boolean",
+    },
+    {
       title: "Position",
-      name: "Position",
+      name: "position",
       type: "string",
     },
     {

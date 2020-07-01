@@ -46,9 +46,19 @@ export default {
       of: [{ type: "block" }, { type: "image" }],
     },
     {
+      title: "In Progress",
+      name: "inProgress",
+      type: "boolean",
+    },
+    {
       title: "Completion Date",
       name: "completionDate",
       type: "datetime",
+    },
+    {
+      title: "Statistics Avaliable",
+      name: "statisticsAvaliable",
+      type: "boolean",
     },
     {
       title: "Statistics",

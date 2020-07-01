@@ -23,6 +23,18 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./desk.js"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "./actions.js"
+    },
+    {
+      "name": "part:@sanity/base/new-document-structure",
+      "path": "./new-document.js"
     }
   ]
 }

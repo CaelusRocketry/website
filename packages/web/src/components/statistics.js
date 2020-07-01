@@ -20,42 +20,28 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const rows = [
-  "Engine",
-  "Thrust",
-  "Propellants",
-  "Specific impulse",
-  "Burn time",
-  "Feed system",
-  "Cooling system",
-  "ignition source",
-  "Recovery system",
-  "Altitude",
-  "Max speed",
-];
-
 const Statistics = (props) => (
   <section className="container mx-auto">
+    <p className="bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light">
+      {props.title}
+    </p>
     <TableContainer>
       <Table>
         <TableBody>
-          {rows.map(
-            (elem, index) =>
-              props.data[index] !== "" && (
-                <TableRow hover={true} key={index}>
-                  <StyledTableCell component="th" scope="row">
-                    {" "}
-                    {elem}{" "}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">
-                    {props.data[index]}
-                  </StyledTableCell>
-                </TableRow>
-              )
+          {props.data.map((elem) =>
+            <TableRow hover={true} key={elem.title}>
+              <StyledTableCell component="th" scope="row">
+                {elem.title}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {elem.value}
+              </StyledTableCell>
+            </TableRow>
           )}
         </TableBody>
       </Table>
     </TableContainer>
+    <br></br>
   </section>
 );
 

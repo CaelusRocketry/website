@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FaRegCopyright,
+  // FaRegCopyright,
   FaFacebook,
   FaLinkedin,
   FaYoutube,

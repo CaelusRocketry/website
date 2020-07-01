@@ -8,6 +8,8 @@ import Subheading from "../components/subheading";
 import Footer from "../components/footer";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 
+const BlockContent = require('@sanity/block-content-to-react')
+
 function IndexPage({ data }) {
   return (
     <Layout>
@@ -40,12 +42,12 @@ function IndexPage({ data }) {
       </section>
 
       <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading={data.posts.nodes[1].title}>
-          {data.posts.nodes[1].description}
+        <Subheading heading="Our Mission">
+          <BlockContent blocks={data.settings.nodes[0].mission} />
         </Subheading>
       </section>
 
-      <section className="flex flex-col bg-primary-dark justify-center">
+      {/* <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Our Timeline"></Subheading>
 
         <Timeline lineColor={"#ddd"}>
@@ -173,10 +175,10 @@ function IndexPage({ data }) {
             </p>
           </TimelineItem>
         </Timeline>
-      </section>
+      </section> */}
 
       <section>
-        <Footer>hi</Footer>
+        <Footer></Footer>
       </section>
     </Layout>
   );
@@ -191,24 +193,9 @@ export const query = graphql`
         }
       }
     }
-    team: file(relativePath: { eq: "team.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    crossSection: file(relativePath: { eq: "cross-section.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    posts: allSanityPost {
+    settings: allSanitySettings {
       nodes {
-        title
-        description
+        mission: _rawMission
       }
     }
   }
