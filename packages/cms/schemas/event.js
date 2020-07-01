@@ -1,6 +1,6 @@
 export default {
-  title: "Post",
-  name: "post",
+  title: "Event",
+  name: "event",
   type: "document",
   fields: [
     {
@@ -17,25 +17,25 @@ export default {
       },
     },
     {
-      title: "Date",
-      name: "date",
-      type: "datetime",
-    },
-    {
-      title: "Description",
-      name: "description",
-      type: "text",
-    },
-    {
       title: "Main Image",
       name: "image",
       type: "image",
     },
     {
-      title: "Body",
-      name: "body",
+      title: "Description",
+      name: "description",
       type: "array",
       of: [{ type: "block" }, { type: "image" }],
+    },
+    {
+      title: "Date",
+      name: "date",
+      type: "datetime",
+    },
+    {
+      title: "Location",
+      name: "location",
+      type: "string",
     },
   ],
 };

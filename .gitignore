@@ -5,7 +5,8 @@ node_modules
 yarn-error.log
 
 # Build directory
-/packages/*/public
+public/
+dist/
 
 # macOS
 .DS_Store
