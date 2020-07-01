@@ -45,17 +45,17 @@ const BlogPage = ({ data }) => {
 
       <ImagePost
         header={posts[0].title}
-        desc={posts[0].overview}
+        desc={posts[0].description}
         slug={posts[0].slug.current}
       >
-        <Img fluid={posts[0].titleImage.asset.fluid} />
+        <Img fluid={posts[0].image.asset.fluid} />
       </ImagePost>
 
       <Carousel responsive={responsive}>
         {posts.slice(1).map((post) => (
           <div class="flex-auto">
             <SubPost header={post.title} slug={post.slug.current}>
-              <Img fixed={post.titleImage.asset.fixed} />
+              <Img fixed={post.image.asset.fixed} />
             </SubPost>
           </div>
         ))}
@@ -68,11 +68,11 @@ export default BlogPage;
 
 export const query = graphql`
   query {
-    blogPosts: allSanityBlogPost {
+    blogPosts: allSanityPost {
       nodes {
         title
-        datetime
-        overview
+        date
+        description
         body {
           _key
           _type
@@ -82,9 +82,9 @@ export const query = graphql`
         slug {
           current
         }
-        titleImage {
+        image {
           asset {
-            fluid(maxWidth: 10) {
+            fluid(maxWidth: 10, maxHeight: 7) {
               ...GatsbySanityImageFluid
             }
             fixed(width: 300, height: 200) {
