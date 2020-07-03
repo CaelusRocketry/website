@@ -12,6 +12,8 @@ import project, { statistic } from "./schemas/project";
 import event from "./schemas/event";
 import sponsor from "./schemas/sponsor";
 import about from "./schemas/about";
+import timeline from "./schemas/timeline";
+
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,6 +25,7 @@ export default createSchema({
     picture,
 
     settings,
+    timeline,
 
     post,
 

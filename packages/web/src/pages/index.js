@@ -7,8 +7,32 @@ import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import Footer from "../components/footer";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+
+
 
 const BlockContent = require('@sanity/block-content-to-react')
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 function IndexPage({ data }) {
   return (
@@ -47,140 +71,74 @@ function IndexPage({ data }) {
         </Subheading>
       </section>
 
-      {/* <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Our Timeline"></Subheading>
+      <section className="container mx-auto justify-center">
+
+        <Carousel
+          partialVisbile
+          responsive={responsive}
+          ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          autoPlay={true}
+          // autoPlaySpeed={7000}
+          keyBoardControl={true}
+          customTransition="all .5"
+          transitionDuration={5000}
+          containerClass="carousel-container"
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-160-px"
+        >
+          {data.settings.nodes[0].gallery.map((imgData) => (
+            <div className="container mx-auto">
+              <img style={{ padding: "40px" }} width="1000" src={imgData.asset.fluid.src} alt={imgData.caption} />
+              <p className="container mx-auto" style={{ textAlign: "center" }}>{imgData.caption}</p>
+            </div>
+          ))}
+        </Carousel>
+      </section>
+
+
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Our Timeline">
 
         <Timeline lineColor={"#ddd"}>
-          <TimelineItem
-            key="001"
-            dateText="November 26, 2018"
-            dateInnerStyle={{ background: "#435058" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
+          {data.timeline.nodes.map((item) => (
+
+            <TimelineItem
+              key={item.key}
+              dateText={item.date}
+              bodyContainerStyle={timelineBodyContainerStyle}
+              // dateInnerStyle = ( {item.finished} ) ? {{ background: "#435058" }} : {{ background: "#F72C25" }}
+              dateInnerStyle = {{ background: "#F72C25" }}
+              style={{ color: "#F72C25" }}
+            >
+            {item.image &&
             <BackgroundImage
-              fluid={data.team.childImageSharp.fluid}
+              fluid={item.image.asset.fluid}
               className="md:mt-0 -mt-16"
               style={{
                 height: "25vh",
                 width: "100%",
                 backgroundSize: "contain",
               }}
-            ></BackgroundImage>
-            <h3 style={{ color: "#F72C25" }}>Project Caelus Formed</h3>
-            <p>
-              The initial Project Caelus team was created after a long round of
-              interviews.{" "}
-            </p>
-          </TimelineItem>
+            ></BackgroundImage>}
+          <h3 style={{ color: "#F72C25" }}>{item.title}</h3>
+          <p>{item.description}</p>
+            </TimelineItem>
 
-          <TimelineItem
-            key="002"
-            dateText="Summer 2020"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <BackgroundImage
-              fluid={data.crossSection.childImageSharp.fluid}
-              className="md:mt-0 -mt-16"
-              style={{
-                height: "25vh",
-                width: "100%",
-                backgroundSize: "contain",
-              }}
-            ></BackgroundImage>
-            <h3 style={{ color: "#F72C25" }}>Aphlex 1B - Ethanol Cold Flow</h3>
-            <p>Perform piping, pressurization and flight software checks.</p>
-          </TimelineItem>
+          ))}
 
-          <TimelineItem
-            key="003"
-            dateText="Winter 2020"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <h3 style={{ color: "#F72C25" }}>
-              Aphlex 1B – Nitrous Oxide Cold Flow
-            </h3>
-            <p>
-              Perform software, plumbing, procedures, and nitrous oxide checks.
-            </p>
-          </TimelineItem>
+      
 
-          <TimelineItem
-            key="004"
-            dateText="Summer 2021"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <h3 style={{ color: "#F72C25" }}>Aphlex 1B – Injector Test</h3>
-            <p>
-              Test pressurization, combustion stability, and atomization of
-              injector.
-            </p>
-          </TimelineItem>
-
-          <TimelineItem
-            key="005"
-            dateText="Winter 2021"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <h3 style={{ color: "#F72C25" }}>Aphlex II</h3>
-            <p>
-              Fully 3D-printed engine with Methalox propellant. Employ cryogenic
-              procedures.
-            </p>
-          </TimelineItem>
-
-          <TimelineItem
-            key="006"
-            dateText="Spring 2022"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <h3 style={{ color: "#F72C25" }}>Castillo I</h3>
-            <p>Reach a 5,000 ft apogee employing Aphlex I engine.</p>
-          </TimelineItem>
-
-          <TimelineItem
-            key="007"
-            dateText="Winter 2022"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <h3 style={{ color: "#F72C25" }}>Castillo II</h3>
-            <p>Further communications testing, reach a higher apogee.</p>
-          </TimelineItem>
-
-          <TimelineItem
-            key="008"
-            dateText="Spring 2023"
-            style={{ color: "#F72C25" }}
-            bodyContainerStyle={timelineBodyContainerStyle}
-          >
-            <BackgroundImage
-              fluid={data.rocket.childImageSharp.fluid}
-              className="md:mt-0 -mt-16"
-              style={{
-                height: "25vh",
-                width: "100%",
-                backgroundSize: "contain",
-              }}
-            ></BackgroundImage>
-
-            <h3 style={{ color: "#F72C25" }}>Castillo III</h3>
-            <p>
-              The final goal of our project: reach the Karman line, 100km above
-              sea level, and successfully recover the rocket.
-            </p>
-          </TimelineItem>
         </Timeline>
-      </section> */}
 
-      <section>
-        <Footer></Footer>
+        </Subheading>
+        
       </section>
-    </Layout>
+
+    <section>
+      <Footer></Footer>
+    </section>
+    </Layout >
   );
 }
 
@@ -196,6 +154,31 @@ export const query = graphql`
     settings: allSanitySettings {
       nodes {
         mission: _rawMission
+        gallery {
+          caption
+          asset {
+            fluid {
+              src
+            }
+          }
+        }
+      }
+    }
+    timeline: allSanityTimeline(sort: {order: ASC, fields: key}) {
+      nodes {
+        key
+        date
+        finished
+        title
+        description
+        image {
+          asset {
+            fluid {
+              src
+              ...GatsbySanityImageFluid
+            }
+          }
+        } 
       }
     }
   }

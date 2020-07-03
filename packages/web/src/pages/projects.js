@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import Statistics from "../components/statistics";
+import Footer from "../components/footer";
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -71,6 +72,7 @@ function ProjectsPage({ data }) {
         </section>
 
       </section>
+      <Footer></Footer>
     </Layout>
   );
 }

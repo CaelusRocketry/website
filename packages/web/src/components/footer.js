@@ -10,7 +10,15 @@ import { Link } from "gatsby";
 
 const Footer = (props) => (
   <div>
+
+    
+<br></br><br></br><br></br>
+      <hr style= {{border: "1px solid"}} />
+      <br></br><br></br>
+
     <div className="flex flex-wrap">
+
+
       <div className="w-full md:w-1/2 justify-center">
         <Link to="/contact">
           {" "}

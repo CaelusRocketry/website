@@ -9,6 +9,8 @@ import {
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
+import Footer from "../components/footer";
+
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -67,6 +69,8 @@ function AboutPage({ data }) {
 
         ))}
       </section>
+
+      <Footer></Footer>
 
     </Layout>
   );
