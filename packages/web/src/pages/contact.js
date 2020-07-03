@@ -3,6 +3,8 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import exports from "./../../tailwind.config";
+import Footer from "../components/footer";
+
 
 const ContactPage = () => (
   <Layout>
@@ -11,9 +13,9 @@ const ContactPage = () => (
       <h2 className="bg-accent text-2xl font-bold inline-block my-3 p-3 pr-4 text-primary-light">
         Contact us!
       </h2>
-      <p className="leading-loose my-3 w-3/4">
+      {/* <p className="leading-loose my-3 w-3/4">
         Fill out your information and we will get back to you shortly.
-      </p>
+      </p> */}
 
       <form
         action="https://getform.io/f/1225c972-e2eb-4f91-b241-b0da2c03980f"
@@ -67,11 +69,7 @@ const ContactPage = () => (
       </form>
     </div>
 
-    <div>
-      <p className="leading-loose my-3">
-        Or, reach out to us on any of these platforms:
-      </p>
-    </div>
+    <Footer></Footer>
   </Layout>
 );
 
