@@ -4,7 +4,7 @@ import Subheading from "../components/subheading";
 import SEO from "../components/seo";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
-import 'github-markdown-css'
+import '../css/github-markdown.css';
 
 const PostTemplate = ({ data: { post } }) => (
   <Layout
