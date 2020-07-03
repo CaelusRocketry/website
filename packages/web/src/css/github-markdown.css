@@ -706,9 +706,14 @@
   color: #6a737d;
 }
 
-.markdown-body ol,
+.markdown-body ol {
+  padding-left: 2em;
+  list-style-type: decimal;
+}
+
 .markdown-body ul {
   padding-left: 2em;
+  list-style-type: circle;
 }
 
 .markdown-body ol ol,
