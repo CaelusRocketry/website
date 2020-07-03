@@ -4,27 +4,12 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import ImagePost from "../components/imagePost";
-import SubPost from "../components/subpost";
 import Img from "gatsby-image";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import PostCarousel from '../components/postcarousel';
 
 const BlogPage = ({ data }) => {
   /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 2,
-    },
-  };
 
   const posts = data.blogPosts.nodes;
 
@@ -51,15 +36,7 @@ const BlogPage = ({ data }) => {
         <Img fluid={posts[0].image.asset.fluid} />
       </ImagePost>
 
-      <Carousel responsive={responsive}>
-        {posts.slice(1).map((post) => (
-          <div class="flex-auto">
-            <SubPost header={post.title} slug={post.slug.current}>
-              <Img fixed={post.image.asset.fixed} />
-            </SubPost>
-          </div>
-        ))}
-      </Carousel>
+      <PostCarousel posts={posts} start={1}/>
     </Layout>
   );
 };
@@ -98,14 +75,15 @@ export const query = graphql`
 `;
 
 /*
-OLD CODE
-      <section class='flex'>
-        {[1, 1, 1, 1].map((index) => (
-          <div class='flex-auto'>
-            <SubPost header={posts[index].title} slug={posts[index].slug.current}>
-              <Img fixed={posts[index].titleImage.asset.fixed}/>
+OLD CAROUSEL CODE
+
+      <Carousel responsive={responsive}>
+        {posts.slice(1).map((post) => (
+          <div class="flex-auto">
+            <SubPost header={post.title} slug={post.slug.current}>
+              <Img fixed={post.image.asset.fixed} />
             </SubPost>
           </div>
         ))}
-      </section>
+      </Carousel>
 */

@@ -4,9 +4,10 @@ import Subheading from "../components/subheading";
 import SEO from "../components/seo";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
+import PostCarousel from "../components/postcarousel";
 import '../css/github-markdown.css';
 
-const PostTemplate = ({ data: { post } }) => (
+const PostTemplate = ({ data, data: { post } }) => (
   <Layout
     seo={<SEO title={`${post.title} | Blog`} keywords={[`blog`, `post`]} />}
   >
@@ -25,6 +26,7 @@ const PostTemplate = ({ data: { post } }) => (
         />
       </Subheading>
     </section>
+    <PostCarousel posts={data.blogPosts.nodes} start={0}/>
   </Layout>
 );
 
@@ -46,6 +48,34 @@ export const query = graphql`
         }
       }
     }
+
+    blogPosts: allSanityPost {
+      nodes {
+        title
+        date
+        description
+        body {
+          _key
+          _type
+          style
+          list
+        }
+        slug {
+          current
+        }
+        image {
+          asset {
+            fluid(maxWidth: 10, maxHeight: 7) {
+              ...GatsbySanityImageFluid
+            }
+            fixed(width: 300, height: 200) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
+      }
+    }
+
   }
 `;
 
