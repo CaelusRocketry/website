@@ -4,6 +4,7 @@ import Subheading from "../components/subheading";
 import SEO from "../components/seo";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
+import '../css/github-markdown.css';
 
 const PostTemplate = ({ data: { post } }) => (
   <Layout
@@ -11,10 +12,10 @@ const PostTemplate = ({ data: { post } }) => (
   >
     <header class="font-serif text-center text-4xl">-- {post.title} --</header>
     <div class="text-center">
-      <Img fixed={post.titleImage.asset.fixed} />
+      <Img fixed={post.image.asset.fixed} />
     </div>
-    <section className="flex flex-col bg-primary-dark justify-center">
-      <Subheading heading="Overview">{post.overview}</Subheading>
+    <section className="flex flex-col bg-primary-dark justify-center markdown-body">
+      <Subheading heading="Overview">{post.description}</Subheading>
       <Subheading heading="Body">
         <BlockContent
           blocks={post._rawBody || []}
@@ -29,15 +30,15 @@ const PostTemplate = ({ data: { post } }) => (
 
 export const query = graphql`
   query PostQuery($id: String) {
-    post: sanityBlogPost(_id: { eq: $id }) {
+    post: sanityPost(_id: { eq: $id }) {
       title
-      overview
-      datetime(formatString: "")
+      description
+      date(formatString: "")
       _rawBody
       slug {
         current
       }
-      titleImage {
+      image {
         asset {
           fixed(width: 500) {
             ...GatsbySanityImageFixed

@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const query = await graphql(`
     {
-      posts: allSanityBlogPost {
+      posts: allSanityPost {
         nodes {
           slug {
             current
