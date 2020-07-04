@@ -1,21 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
+import converter from "./dateconverter";
 
 // ref: https://wdexplorer.com/20-examples-beautiful-css-typography-design/
 
 const ImagePost = (props) => {
-  /*
-            <h1 class="font-serif text-3xl text-white-800 text-center mb-2">
-                {props.header}
-            </h1>
-
-*/
-
   return (
     <div class="text-center w-full flex items-start transition duration-500 ease-in-out text-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-95">
       <Link
         to={"/blog/" + props.slug}
-        class="inline-block w-2/5" /*Right now links to Contact page but will later link to respect blog post*/
+        class="inline-block w-2/5"
       >
         <div
           style={{
@@ -44,10 +38,10 @@ const ImagePost = (props) => {
           <h1 class="font-serif text-3xl text-white-800 text-center mb-2">
             {props.header}<br/>
             <div class="text-2xl">By: Project Caelus</div>
-            <div class="text-2xl">- {props.date}</div>
+            <div class="text-2xl">- {converter(props.date)}</div>
           </h1>
 
-          <p class="justify-center mx-10 mt-5 text-lg" /*'text-justify'*/>
+          <p class="justify-center mx-10 mt-5 text-lg">
             {props.desc}
           </p>
         </Link>

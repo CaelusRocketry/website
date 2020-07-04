@@ -5,6 +5,7 @@ import Footer from "../components/footer";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
 import PostCarousel from "../components/postcarousel";
+import converter from "../components/dateconverter";
 import '../css/github-markdown.css';
 
 const PostTemplate = ({ data, data: { post } }) => (
@@ -12,8 +13,9 @@ const PostTemplate = ({ data, data: { post } }) => (
     seo={<SEO title={`${post.title} | Blog`} keywords={[`blog`, `post`]} />}
   >
     <header class="font-serif text-center text-4xl">-- {post.title} --</header>
-
-    <div class="text-center"><Img fixed={post.image.asset.fixed} /></div>
+    <div class="font-serif text-center text-3xl">By: Project Caelus</div>
+    <div class="font-serif text-center text-2xl">{converter(post.date)}</div>
+    <div class="text-center mt-10"><Img fixed={post.image.asset.fixed} /></div>
     <div class="text-center mb-20">{post.description}</div>
 
     <section className="flex flex-col bg-primary-dark justify-center markdown-body ">
@@ -36,7 +38,7 @@ export const query = graphql`
     post: sanityPost(_id: { eq: $id }) {
       title
       description
-      date(fromNow: true)
+      date
       _rawBody
       slug {
         current

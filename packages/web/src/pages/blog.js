@@ -45,7 +45,7 @@ export const query = graphql`
     blogPosts: allSanityPost {
       nodes {
         title
-        date(fromNow: true)
+        date
         description
         body {
           _key
