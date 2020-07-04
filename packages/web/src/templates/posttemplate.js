@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
-import Subheading from "../components/subheading";
 import SEO from "../components/seo";
+import Footer from "../components/footer";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
 import PostCarousel from "../components/postcarousel";
@@ -27,6 +27,7 @@ const PostTemplate = ({ data, data: { post } }) => (
       </div>
     </section>
     <PostCarousel posts={data.blogPosts.nodes} start={0}/>
+    <Footer />
   </Layout>
 );
 
@@ -35,7 +36,7 @@ export const query = graphql`
     post: sanityPost(_id: { eq: $id }) {
       title
       description
-      date(formatString: "")
+      date(fromNow: true)
       _rawBody
       slug {
         current

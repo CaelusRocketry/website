@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
+import Img from 'gatsby-image';
 
 const SubPost = (props) => (
-  <div class="text-center mr-5 transition duration-500 ease-in-out text-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-105">
+  <div class="text-center mr-5 transition duration-500 ease-in-out text-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-95">
     <Link
       to={
         "/blog/" + props.slug
@@ -29,8 +30,10 @@ const SubPost = (props) => (
         </div>
       </div>
       
-      <h1 class="font-serif text-3xl text-white-800 text-center mt-5">
-        {props.header}
+      <h1 class="font-serif text-2xl text-white-800 text-center mt-5">
+        {props.header}<br/>
+        <div class="text-xl">By: Project Caelus</div>
+        <div class="text-xl">- {props.date}</div>
       </h1>
     </Link>
   </div>

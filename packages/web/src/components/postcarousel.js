@@ -25,7 +25,7 @@ const PostCarousel = props => {
         <Carousel responsive={responsive}>
             {props.posts.slice(props.start).map((post) => (
                 <div class="flex-auto">
-                    <SubPost header={post.title} slug={post.slug.current}>
+                    <SubPost header={post.title} slug={post.slug.current} date={post.date}>
                         <Img fixed={post.image.asset.fixed} />
                     </SubPost>
                 </div>

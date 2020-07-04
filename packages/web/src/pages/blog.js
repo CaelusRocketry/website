@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import ImagePost from "../components/imagePost";
+import Footer from "../components/footer";
 import Img from "gatsby-image";
 import "react-multi-carousel/lib/styles.css";
 import PostCarousel from '../components/postcarousel';
@@ -17,28 +18,22 @@ const BlogPage = ({ data }) => {
     <Layout>
       <SEO title="Blog" />
 
-      {/*
-      <div style={{ textAlign: "center" }}>
-        <h2 className="font-serif text-4xl text-white-800 text-center mb-10">
-          -- Blog --
-        </h2>
-      </div>
-      */}
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Blog"></Subheading>
       </section>
       
-      {/*<div class='flex'>*/}
       <ImagePost
         header={posts[0].title}
         desc={posts[0].description}
         slug={posts[0].slug.current}
+        date={posts[0].date}
       >
         <Img fluid={posts[0].image.asset.fluid} />
       </ImagePost>
 
       <PostCarousel posts={posts} start={1}/>
-      {/*</div>*/}
+
+      <Footer/>
     </Layout>
   );
 };
@@ -50,7 +45,7 @@ export const query = graphql`
     blogPosts: allSanityPost {
       nodes {
         title
-        date
+        date(fromNow: true)
         description
         body {
           _key
