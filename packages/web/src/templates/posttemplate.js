@@ -12,19 +12,19 @@ const PostTemplate = ({ data, data: { post } }) => (
     seo={<SEO title={`${post.title} | Blog`} keywords={[`blog`, `post`]} />}
   >
     <header class="font-serif text-center text-4xl">-- {post.title} --</header>
-    <div class="text-center">
-      <Img fixed={post.image.asset.fixed} />
-    </div>
-    <section className="flex flex-col bg-primary-dark justify-center markdown-body">
-      <Subheading heading="Overview">{post.description}</Subheading>
-      <Subheading heading="Body">
+
+    <div class="text-center"><Img fixed={post.image.asset.fixed} /></div>
+    <div class="text-center mb-20">{post.description}</div>
+
+    <section className="flex flex-col bg-primary-dark justify-center markdown-body ">
+      <div className='inline-block container mx-auto'>
         <BlockContent
           blocks={post._rawBody || []}
           serializers={{}}
           projectId={process.env.GATSBY_SANITY_ID}
           dataset={process.env.GATSBY_SANITY_DATASET}
         />
-      </Subheading>
+      </div>
     </section>
     <PostCarousel posts={data.blogPosts.nodes} start={0}/>
   </Layout>

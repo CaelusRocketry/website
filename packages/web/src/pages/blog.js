@@ -27,7 +27,8 @@ const BlogPage = ({ data }) => {
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Blog"></Subheading>
       </section>
-
+      
+      {/*<div class='flex'>*/}
       <ImagePost
         header={posts[0].title}
         desc={posts[0].description}
@@ -37,6 +38,7 @@ const BlogPage = ({ data }) => {
       </ImagePost>
 
       <PostCarousel posts={posts} start={1}/>
+      {/*</div>*/}
     </Layout>
   );
 };
@@ -73,17 +75,3 @@ export const query = graphql`
     }
   }
 `;
-
-/*
-OLD CAROUSEL CODE
-
-      <Carousel responsive={responsive}>
-        {posts.slice(1).map((post) => (
-          <div class="flex-auto">
-            <SubPost header={post.title} slug={post.slug.current}>
-              <Img fixed={post.image.asset.fixed} />
-            </SubPost>
-          </div>
-        ))}
-      </Carousel>
-*/

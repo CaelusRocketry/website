@@ -6,21 +6,16 @@ const SubPost = (props) => (
     <Link
       to={
         "/blog/" + props.slug
-      } /*Right now links to Contact page but will later link to respect blog post*/
+      }
     >
-      <h1 class="font-serif text-3xl text-white-800 text-center mt-10">
-        {props.header}
-      </h1>
-
       <div
         style={{
           backgroundColor: "#f1111d",
           borderRadius: 10,
-          margin: 5,
           width: props.children.width,
           height: props.children.height,
         }}
-        class="inline-block border-solid border-2 border-black"
+        class="inline-block border-solid border-2 border-black mt-10"
       >
         <div
           style={{
@@ -33,8 +28,11 @@ const SubPost = (props) => (
           {props.children}
         </div>
       </div>
+      
+      <h1 class="font-serif text-3xl text-white-800 text-center mt-5">
+        {props.header}
+      </h1>
     </Link>
-    <p class="justify-center mx-20 mt-10" /*'text-justify'*/>{props.desc}</p>
   </div>
 );
 
