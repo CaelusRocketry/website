@@ -43,7 +43,7 @@ function AboutPage({ data }) {
         </Subheading>
         <Subheading heading="Subsystems"></Subheading>
       </section>
-
+      
      
       <section class="flex mb-4 container mx-auto">
         
@@ -69,12 +69,63 @@ function AboutPage({ data }) {
 
         ))}
       </section>
-
+      <section className="flex flex-col bg-primary-dark justify-center"> 
+        <Subheading heading="Members">
+        </Subheading>
+        {data.members.nodes.map((mem) => (
+          <div>
+            <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
+              {mem.name}
+            </div> 
+            <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
+              Position: {mem.position}
+            </div> 
+            <div>
+              <BlockContent blocks={mem.bio}>
+              </BlockContent>
+            </div>
+            <div>
+                {mem.portrait &&
+                  <BackgroundImage
+                    fluid={mem.portrait.asset.fluid}
+                    className="md:mt-0 -mt-16"
+                    style={{
+                      height: "25vh",
+                      width: "100%",
+                      backgroundSize: "contain",
+                    }}
+                  ></BackgroundImage>}
+            </div>
+          </div>
+        ))}
+      </section>
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Sponsors">
+        </Subheading>
+        {data.sponsors.nodes.map((sp) => (
+          <div>
+              <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
+                {sp.name}
+              </div> 
+              <div>
+              {sp.image &&
+                <BackgroundImage
+                  fluid={sp.image.asset.fluid}
+                  className="md:mt-0 -mt-16"
+                  style={{
+                    height: "25vh",
+                    width: "100%",
+                    backgroundSize: "contain",
+                  }}
+                ></BackgroundImage>}
+              </div>
+            </div>
+        ))}
+      </section>
       <Footer></Footer>
 
     </Layout>
-  );
-}
+    )};
 
 export const query = graphql`
   query {
@@ -95,15 +146,37 @@ export const query = graphql`
         }
       }
     }
+    sponsors: allSanitySponsor {
+      nodes {
+        name
+        link
+        image {
+          asset {
+            fluid {
+              src
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+    members: allSanityMember {
+      nodes {
+        name 
+        leadership
+        position
+        _rawBio
+        portrait {
+          asset {
+            fluid {
+              src
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 export default AboutPage;
-// teamImage {
-//   asset {
-//     fluid {
-//       ...GatsbySanityImageFluid
-//     }
-//   }
-//   caption
-// }
