@@ -14,9 +14,11 @@ import Footer from "../components/footer";
 
 const BlockContent = require('@sanity/block-content-to-react')
 
-const icons = {"Programming": <FaRegFileCode size="100px" style={{ margin: "0 15px" }} />,
-              "Propulsion": <FaAtom size="100px" style={{ margin: "0 15px" }} />,
-              "Outreach": <FaPencilRuler size="100px" style={{  textAlign: "center", margin: "0 15px" }} /> }
+const icons = {
+  "Programming": <FaRegFileCode size="100px" style={{ margin: "0 15px" }} />,
+  "Propulsion": <FaAtom size="100px" style={{ margin: "0 15px" }} />,
+  "Outreach": <FaPencilRuler size="100px" style={{ textAlign: "center", margin: "0 15px" }} />
+}
 
 
 function AboutPage({ data }) {
@@ -41,50 +43,53 @@ function AboutPage({ data }) {
           {}
           <BlockContent blocks={data.about.nodes[0].purpose} />
         </Subheading>
-        <Subheading heading="Subsystems"></Subheading>
+
       </section>
-      
-     
-      <section class="flex mb-4 container mx-auto">
-        
-        {data.about.nodes[0].subsystem.map((subsys) => (
-          <div
-            class="flex-auto w-full md:w-1/3 justify-center"
-            style={{ padding: 20, margin: 30, borderRadius: "25px", color: "#0D1321"}}
-            className="bg-secondary-light primary-dark inline-block my-8 p-3"
-          >
-            
-            <div className="w-full flex justify-center">
-            {icons[subsys.title]}
-            </div> <br></br>
 
-            <h1 class="font-serif text-3xl text-center mb-2">
-              {subsys.title}
-            </h1>
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Subsystems">
+          <section class="flex mb-4 container mx-auto">
 
-            <p className="container mx-auto primary-dark" style={{ textAlign: "center" }}>
-              {subsys.value}
-            </p>
-          </div>
+            {data.about.nodes[0].subsystem.map((subsys) => (
+              <div
+                class="flex-auto w-full md:w-1/3 justify-center"
+                style={{ padding: 20, margin: 30, borderRadius: "25px", color: "#0D1321" }}
+                className="bg-secondary-light primary-dark inline-block my-8 p-3"
+              >
 
-        ))}
-      </section>
-      <section className="flex flex-col bg-primary-dark justify-center"> 
-        <Subheading heading="Members">
+                <div className="w-full flex justify-center">
+                  {icons[subsys.title]}
+                </div> <br></br>
+
+                <h1 class="font-serif text-3xl text-center mb-2">
+                  {subsys.title}
+                </h1>
+
+                <p className="container mx-auto primary-dark" style={{ textAlign: "center" }}>
+                  {subsys.value}
+                </p>
+              </div>
+
+            ))}
+          </section>
         </Subheading>
-        {data.members.nodes.map((mem) => (
-          <div>
-            <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
-              {mem.name}
-            </div> 
-            <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
-              Position: {mem.position}
-            </div> 
+      </section>
+      <section className="flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Members">
+
+          {data.members.nodes.map((mem) => (
             <div>
-              <BlockContent blocks={mem.bio}>
-              </BlockContent>
-            </div>
-            <div>
+              <div className="w-full flex justify-center" style={{ textAlign: "center" }}>
+                {mem.name}
+              </div>
+              <div className="w-full flex justify-center" style={{ textAlign: "center" }}>
+                Position: {mem.position}
+              </div>
+              <div className="w-full flex justify-center" style={{ textAlign: "center" }}>
+                <BlockContent blocks={mem.bio}>
+                </BlockContent>
+              </div>
+              <div>
                 {mem.portrait &&
                   <BackgroundImage
                     fluid={mem.portrait.asset.fluid}
@@ -95,37 +100,40 @@ function AboutPage({ data }) {
                       backgroundSize: "contain",
                     }}
                   ></BackgroundImage>}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </Subheading>
       </section>
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Sponsors">
-        </Subheading>
-        {data.sponsors.nodes.map((sp) => (
-          <div>
-              <div className="w-full flex justify-center" style={{ textAlign: "center"}}>
+
+          {data.sponsors.nodes.map((sp) => (
+            <div>
+              <div className="w-full flex justify-center" style={{ textAlign: "center" }}>
                 {sp.name}
-              </div> 
+              </div>
               <div>
-              {sp.image &&
-                <BackgroundImage
-                  fluid={sp.image.asset.fluid}
-                  className="md:mt-0 -mt-16"
-                  style={{
-                    height: "25vh",
-                    width: "100%",
-                    backgroundSize: "contain",
-                  }}
-                ></BackgroundImage>}
+                {sp.image &&
+                  <BackgroundImage
+                    fluid={sp.image.asset.fluid}
+                    className="md:mt-0 -mt-16"
+                    style={{
+                      height: "25vh",
+                      width: "100%",
+                      backgroundSize: "contain",
+                    }}
+                  ></BackgroundImage>}
               </div>
             </div>
-        ))}
+          ))}
+        </Subheading>
       </section>
       <Footer></Footer>
 
     </Layout>
-    )};
+  )
+};
 
 export const query = graphql`
   query {
@@ -165,7 +173,7 @@ export const query = graphql`
         name 
         leadership
         position
-        _rawBio
+        bio: _rawBio
         portrait {
           asset {
             fluid {
