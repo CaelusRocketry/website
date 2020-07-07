@@ -3,6 +3,7 @@ import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Footer from "../components/footer";
 const BlockContent = require('@sanity/block-content-to-react')
 
 function OutreachPage({ data }) {
@@ -49,6 +50,7 @@ function OutreachPage({ data }) {
           </section>
         </section>
       ))}
+      <Footer></Footer>
     </Layout>
   );
 }
