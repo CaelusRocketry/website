@@ -5,12 +5,11 @@ import SEO from "../components/seo";
 import exports from "./../../tailwind.config";
 import Footer from "../components/footer";
 
-
 const ContactPage = () => (
   <Layout>
     <SEO title="Contact Us!" />
-    <div>
-      <h2 className="bg-accent text-2xl font-bold inline-block my-3 p-3 pr-4 text-primary-light">
+    <div className="flex flex-col justify-center">
+      <h2 className="bg-accent text-2xl font-bold inline-block p-4 mb-8 text-primary-light mx-auto">
         Contact us!
       </h2>
       {/* <p className="leading-loose my-3 w-3/4">
@@ -26,7 +25,7 @@ const ContactPage = () => (
           <span class="flex justify-center text-black">
             <input
               type="name"
-              class="form-input mt-1 my-5 block w-1/3"
+              class="form-input mt-1 my-5 block "
               placeholder="John Smith"
             ></input>
           </span>
@@ -36,7 +35,7 @@ const ContactPage = () => (
           <span class="flex justify-center text-black">
             <input
               type="email"
-              class="form-input mt-1 my-5 block w-1/3"
+              class="form-input mt-1 my-5 block"
               placeholder="john@example.com"
             ></input>
           </span>
@@ -46,7 +45,7 @@ const ContactPage = () => (
           <span class="flex justify-center text-black">
             <input
               type="subject"
-              class="form-input mt-1 my-5 block w-1/3"
+              class="form-input mt-1 my-5 block"
               placeholder="Hello!"
             ></input>
           </span>
@@ -55,7 +54,7 @@ const ContactPage = () => (
           <span class="text-gray-300 flex justify-center">Message</span>
           <span class="flex justify-center text-black">
             <textarea
-              class="form-textarea mt-1 my-5 block w-1/3"
+              class="form-textarea mt-1 my-5 block"
               rows="6"
               placeholder="Enter your message"
             ></textarea>
