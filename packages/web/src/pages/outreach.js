@@ -3,6 +3,7 @@ import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+const BlockContent = require('@sanity/block-content-to-react')
 
 function OutreachPage({ data }) {
   return (
@@ -27,8 +28,8 @@ function OutreachPage({ data }) {
               style={{ margin: 5 }}
             >
               <p className="" style={{ textAlign: "left" }}>
-                {/* {event.description} */}
-                why tf is description not working
+                {
+              <BlockContent blocks={event.description} />}
               </p>
             </div>
             <div
