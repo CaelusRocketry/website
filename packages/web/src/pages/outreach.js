@@ -1,6 +1,5 @@
 import React from "react";
-import BackgroundImage from "gatsby-background-image";
-
+import BackgroundImg from "gatsby-background-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Footer from "../components/footer";
@@ -35,13 +34,13 @@ function OutreachPage({ data }) {
             </div>
             <div
               class="flex-auto container md:w-1/2 justify-center"
-              style={{ margin: 5 }}
+              style={{ margin: 10 }}
             >
-              <BackgroundImage
+              <BackgroundImg
                 fluid={event.image.asset.fluid}
                 className="md:mt-0 -mt-16"
                 style={{
-                  height: "55vh",
+                  height: "100%",
                   width: "100%",
                   backgroundSize: "contain",
                 }}
