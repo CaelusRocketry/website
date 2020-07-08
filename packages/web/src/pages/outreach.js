@@ -4,6 +4,7 @@ import BackgroundImage from "gatsby-background-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Footer from "../components/footer";
+import '../css/github-markdown.css';
 const BlockContent = require('@sanity/block-content-to-react')
 
 function OutreachPage({ data }) {
@@ -28,10 +29,9 @@ function OutreachPage({ data }) {
               class="flex-auto container md:w-1/2 justify-center"
               style={{ margin: 5 }}
             >
-              <p className="" style={{ textAlign: "left" }}>
-                {
-              <BlockContent blocks={event.description} />}
-              </p>
+              <div className="markdown-body" style={{ textAlign: "left" }}>
+                <BlockContent blocks={event.description} />
+              </div>
             </div>
             <div
               class="flex-auto container md:w-1/2 justify-center"
