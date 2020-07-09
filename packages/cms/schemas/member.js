@@ -22,9 +22,18 @@ export default {
       type: "boolean",
     },
     {
-      title: "Position",
-      name: "position",
-      type: "string",
+      title: 'Team',
+      name: 'team',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Propulsion', value: 'propulsion'},
+          {title: 'Programming', value: 'programming'},
+          {title: 'Outreach', value: 'outreach'},
+          {title: 'Founder', value: 'founder'}
+        ], // <-- predefined values
+        layout: 'radio' // <-- defaults to 'dropdown'
+      }
     },
     {
       title: "Portrait",

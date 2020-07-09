@@ -36,18 +36,17 @@ function AboutPage({ data }) {
           backgroundSize: "contain"
         }}
       />
-      <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Our Team">
-          {data.about.nodes[0].teamImage.caption}
-        </Subheading>
-        <Subheading heading="Purpose">
-          {}
-          <BlockContent blocks={data.about.nodes[0].purpose} />
-        </Subheading>
+      <section className="container mx-auto flex flex-col bg-primary-dark justify-center">
+        <Subheading heading="Our Team"></Subheading>
+        {data.about.nodes[0].teamImage.caption}
+
+        <Subheading heading="Purpose"></Subheading>
+        <BlockContent blocks={data.about.nodes[0].purpose} />
+
       </section>
 
       <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Subsystems">
+        <Subheading heading="Subsystems"></Subheading>
           <section class="flex mb-4 container mx-auto">
             {data.about.nodes[0].subsystem.map(subsys => (
               <div
@@ -62,7 +61,7 @@ function AboutPage({ data }) {
               >
                 <div className="w-full flex justify-center">
                   {icons[subsys.title]}
-                </div>{" "}
+                </div>
                 <br></br>
                 <h1 class="font-serif text-3xl text-center mb-2">
                   {subsys.title}
@@ -76,31 +75,15 @@ function AboutPage({ data }) {
               </div>
             ))}
           </section>
-        </Subheading>
+        
       </section>
       <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Members">
-          {data.members.nodes.map(mem => (
-            <div>
-              <div
-                className="w-full flex justify-center"
-                style={{ textAlign: "center" }}
-              >
-                {mem.name}
-              </div>
-              <div
-                className="w-full flex justify-center"
-                style={{ textAlign: "center" }}
-              >
-                Position: {mem.position}
-              </div>
-              <div
-                className="w-full flex justify-center"
-                style={{ textAlign: "center" }}
-              >
-                <BlockContent blocks={mem.bio}></BlockContent>
-              </div>
-              <div>
+        <Subheading heading="Members"></Subheading>
+
+        {data.members.nodes.map(mem => (
+          <section class="container mx-auto flex mb-4">
+        
+              <div class="w-1/4 text-center font-serif text-2xl text-center mb-2" >
                 {mem.portrait && (
                   <BackgroundImg
                     fluid={mem.portrait.asset.fluid}
@@ -112,10 +95,16 @@ function AboutPage({ data }) {
                     }}
                   ></BackgroundImg>
                 )}
+                {mem.name}
               </div>
-            </div>
-          ))}
-        </Subheading>
+              <div class="w-3/4 text-center">
+                <BlockContent blocks={mem.bio}></BlockContent>
+              </div>
+
+           
+          </section>
+        ))}
+
       </section>
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Sponsors">
@@ -128,14 +117,14 @@ function AboutPage({ data }) {
                 {sp.name}
               </div>
               <Link href={sp.link}>
-                <a className="block w-full md:w-1/2 mx-auto">
+                <div className="block w-full md:w-1/2 mx-auto">
                   {sp.image && (
                     <Img
                       fluid={sp.image.asset.fluid}
                       className="transition opacity-75 hover:opacity-100"
                     />
                   )}
-                </a>
+                </div>
               </Link>
             </div>
           ))}
@@ -179,11 +168,11 @@ export const query = graphql`
         }
       }
     }
-    members: allSanityMember {
+    members: allSanityMember(sort: {fields: leadership, order: DESC}) {
       nodes {
         name
         leadership
-        position
+        team
         bio: _rawBio
         portrait {
           asset {

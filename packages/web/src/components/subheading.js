@@ -5,7 +5,7 @@ const Subheading = (props) => (
     style={{
       padding: 20,
       borderRadius: 10,
-      margin: 50,
+      margin: 5,
     }}
     className="inline-block"
   >

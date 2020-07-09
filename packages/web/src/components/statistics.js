@@ -13,6 +13,7 @@ const Statistics = props => (
         </div>
       ))}
     </div>
+    <br></br>
   </section>
 );
 

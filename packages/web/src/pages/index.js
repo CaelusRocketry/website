@@ -11,7 +11,6 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
 
-
 const BlockContent = require('@sanity/block-content-to-react')
 
 const responsive = {
@@ -65,13 +64,9 @@ function IndexPage({ data }) {
         />
       </section>
 
-      <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Our Mission">
-          <BlockContent blocks={data.settings.nodes[0].mission} />
-        </Subheading>
-      </section>
-
-      <section className="container mx-auto justify-center">
+      <section className="container mx-auto flex flex-col bg-primary-dark justify-center text-center">
+        <Subheading heading="Our Mission"></Subheading>
+        <BlockContent blocks={data.settings.nodes[0].mission} />
 
         <Carousel
           partialVisbile
@@ -98,7 +93,7 @@ function IndexPage({ data }) {
 
 
       <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Our Timeline">
+        <Subheading heading="Our Timeline"></Subheading>
 
         <Timeline lineColor={"#ddd"}>
           {data.timeline.nodes.map((item) => (
@@ -107,37 +102,31 @@ function IndexPage({ data }) {
               key={item.key}
               dateText={item.date}
               bodyContainerStyle={timelineBodyContainerStyle}
-              // dateInnerStyle = ( {item.finished} ) ? {{ background: "#435058" }} : {{ background: "#F72C25" }}
-              dateInnerStyle = {{ background: "#F72C25" }}
-              style={{ color: "#F72C25" }}
+              dateInnerStyle={(item.finished) ? { background: "#435058" } : { background: "#F72C25" }}
+              style={(item.finished) ? { color: "#435058" } : { color: "#F72C25" }}
             >
-            {item.image &&
-            <BackgroundImage
-              fluid={item.image.asset.fluid}
-              className="md:mt-0 -mt-16"
-              style={{
-                height: "25vh",
-                width: "100%",
-                backgroundSize: "contain",
-              }}
-            ></BackgroundImage>}
-          <h3 style={{ color: "#F72C25" }}>{item.title}</h3>
-          <p>{item.description}</p>
+              {item.image &&
+                <BackgroundImage
+                  fluid={item.image.asset.fluid}
+                  className="md:mt-0 -mt-16"
+                  style={{
+                    height: "25vh",
+                    width: "100%",
+                    backgroundSize: "contain",
+                  }}
+                ></BackgroundImage>}
+              <h3 style={{ color: "#F72C25" }}>{item.title}</h3>
+              <p>{item.description}</p>
             </TimelineItem>
 
           ))}
-
-      
-
         </Timeline>
 
-        </Subheading>
-        
       </section>
 
-    <section>
-      <Footer></Footer>
-    </section>
+      <section>
+        <Footer></Footer>
+      </section>
     </Layout >
   );
 }
