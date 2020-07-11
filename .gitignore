@@ -6,6 +6,7 @@ yarn-error.log
 
 # Build directory
 public/
+dist/
 
 # macOS
 .DS_Store
