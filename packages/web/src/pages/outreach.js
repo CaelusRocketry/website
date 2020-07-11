@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Footer from "../components/footer";
 import Event from "../components/event";
-import '../css/github-markdown.css';
+import "../css/github-markdown.css";
 
 function OutreachPage({ data }) {
   return (
@@ -20,7 +20,7 @@ export const query = graphql`
     events: allSanityEvent {
       nodes {
         title
-        description:_rawDescription
+        description: _rawDescription
         image {
           asset {
             fluid {

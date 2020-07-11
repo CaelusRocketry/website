@@ -14,7 +14,6 @@ import sponsor from "./schemas/sponsor";
 import about from "./schemas/about";
 import timeline from "./schemas/timeline";
 
-
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema

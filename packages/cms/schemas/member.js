@@ -22,18 +22,18 @@ export default {
       type: "boolean",
     },
     {
-      title: 'Team',
-      name: 'team',
-      type: 'string',
+      title: "Team",
+      name: "team",
+      type: "string",
       options: {
         list: [
-          {title: 'Propulsion', value: 'propulsion'},
-          {title: 'Programming', value: 'programming'},
-          {title: 'Outreach', value: 'outreach'},
-          {title: 'Founder', value: 'founder'}
+          { title: "Propulsion", value: "propulsion" },
+          { title: "Programming", value: "programming" },
+          { title: "Outreach", value: "outreach" },
+          { title: "Founder", value: "founder" },
         ], // <-- predefined values
-        layout: 'radio' // <-- defaults to 'dropdown'
-      }
+        layout: "radio", // <-- defaults to 'dropdown'
+      },
     },
     {
       title: "Portrait",

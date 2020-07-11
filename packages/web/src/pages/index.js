@@ -7,30 +7,29 @@ import SEO from "../components/seo";
 import Subheading from "../components/subheading";
 import Footer from "../components/footer";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
-import Carousel from 'react-multi-carousel';
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-
-const BlockContent = require('@sanity/block-content-to-react')
+const BlockContent = require("@sanity/block-content-to-react");
 
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5
+    items: 5,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
+    items: 1,
+  },
 };
 
 function IndexPage({ data }) {
@@ -84,28 +83,39 @@ function IndexPage({ data }) {
         >
           {data.settings.nodes[0].gallery.map((imgData) => (
             <div className="container mx-auto">
-              <img style={{ padding: "40px" }} width="1000" src={imgData.asset.fluid.src} alt={imgData.caption} />
-              <p className="container mx-auto" style={{ textAlign: "center" }}>{imgData.caption}</p>
+              <img
+                style={{ padding: "40px" }}
+                width="1000"
+                src={imgData.asset.fluid.src}
+                alt={imgData.caption}
+              />
+              <p className="container mx-auto" style={{ textAlign: "center" }}>
+                {imgData.caption}
+              </p>
             </div>
           ))}
         </Carousel>
       </section>
-
 
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Our Timeline"></Subheading>
 
         <Timeline lineColor={"#ddd"}>
           {data.timeline.nodes.map((item) => (
-
             <TimelineItem
               key={item.key}
               dateText={item.date}
               bodyContainerStyle={timelineBodyContainerStyle}
-              dateInnerStyle={(item.finished) ? { background: "#435058" } : { background: "#F72C25" }}
-              style={(item.finished) ? { color: "#435058" } : { color: "#F72C25" }}
+              dateInnerStyle={
+                item.finished
+                  ? { background: "#435058" }
+                  : { background: "#F72C25" }
+              }
+              style={
+                item.finished ? { color: "#435058" } : { color: "#F72C25" }
+              }
             >
-              {item.image &&
+              {item.image && (
                 <BackgroundImage
                   fluid={item.image.asset.fluid}
                   className="md:mt-0 -mt-16"
@@ -114,20 +124,19 @@ function IndexPage({ data }) {
                     width: "100%",
                     backgroundSize: "contain",
                   }}
-                ></BackgroundImage>}
+                ></BackgroundImage>
+              )}
               <h3 style={{ color: "#F72C25" }}>{item.title}</h3>
               <p>{item.description}</p>
             </TimelineItem>
-
           ))}
         </Timeline>
-
       </section>
 
       <section>
         <Footer></Footer>
       </section>
-    </Layout >
+    </Layout>
   );
 }
 
@@ -153,7 +162,7 @@ export const query = graphql`
         }
       }
     }
-    timeline: allSanityTimeline(sort: {order: ASC, fields: key}) {
+    timeline: allSanityTimeline(sort: { order: ASC, fields: key }) {
       nodes {
         key
         date
@@ -167,7 +176,7 @@ export const query = graphql`
               ...GatsbySanityImageFluid
             }
           }
-        } 
+        }
       }
     }
   }

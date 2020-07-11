@@ -7,7 +7,7 @@ import ImagePost from "../components/imagePost";
 import Footer from "../components/footer";
 import Img from "gatsby-image";
 import "react-multi-carousel/lib/styles.css";
-import PostCarousel from '../components/postcarousel';
+import PostCarousel from "../components/postcarousel";
 
 const BlogPage = ({ data }) => {
   /*"bg-accent text-2xl font-bold inline-block my-8 p-3 text-primary-light"*/
@@ -21,7 +21,7 @@ const BlogPage = ({ data }) => {
       <section className="flex flex-col bg-primary-dark justify-center">
         <Subheading heading="Blog"></Subheading>
       </section>
-      
+
       <ImagePost
         header={posts[0].title}
         desc={posts[0].description}
@@ -31,9 +31,9 @@ const BlogPage = ({ data }) => {
         <Img fluid={posts[0].image.asset.fluid} />
       </ImagePost>
 
-      <PostCarousel posts={posts} start={1}/>
+      <PostCarousel posts={posts} start={1} />
 
-      <Footer/>
+      <Footer />
     </Layout>
   );
 };

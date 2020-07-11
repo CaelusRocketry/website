@@ -6,7 +6,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
 import PostCarousel from "../components/postcarousel";
 import converter from "../components/dateconverter";
-import '../css/github-markdown.css';
+import "../css/github-markdown.css";
 
 const PostTemplate = ({ data, data: { post } }) => (
   <Layout
@@ -15,11 +15,13 @@ const PostTemplate = ({ data, data: { post } }) => (
     <header class="font-serif text-center text-4xl">-- {post.title} --</header>
     <div class="font-serif text-center text-3xl">By: Project Caelus</div>
     <div class="font-serif text-center text-2xl">{converter(post.date)}</div>
-    <div class="text-center mt-10"><Img fixed={post.image.asset.fixed} /></div>
+    <div class="text-center mt-10">
+      <Img fixed={post.image.asset.fixed} />
+    </div>
     <div class="text-center mb-20">{post.description}</div>
 
-    <section className="flex flex-col bg-primary-dark justify-center markdown-body ">
-      <div className='inline-block container mx-auto'>
+    <section className="body flex flex-col bg-primary-dark justify-center ">
+      <div className="inline-block container mx-auto">
         <BlockContent
           blocks={post._rawBody || []}
           serializers={{}}
@@ -28,7 +30,7 @@ const PostTemplate = ({ data, data: { post } }) => (
         />
       </div>
     </section>
-    <PostCarousel posts={data.blogPosts.nodes} start={0}/>
+    <PostCarousel posts={data.blogPosts.nodes} start={0} />
     <Footer />
   </Layout>
 );
@@ -78,7 +80,6 @@ export const query = graphql`
         }
       }
     }
-
   }
 `;
 
