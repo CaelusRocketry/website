@@ -9,9 +9,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "~css": path.resolve(__dirname, "src/css"),
         "~images": path.resolve(__dirname, "src/images"),
         //'~utils': path.resolve(__dirname, 'src/utils'),
-        "~templates": path.resolve(__dirname, "src/templates")
-      }
-    }
+        "~templates": path.resolve(__dirname, "src/templates"),
+      },
+    },
   });
 };
 

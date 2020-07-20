@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Karla", "sans-serif"],
+      mono: ["'DM Mono'", "monospace"]
     },
     extend: {
       colors: {
@@ -10,13 +11,13 @@ module.exports = {
         "secondary-dark": "#435058",
         "primary-light": "#F3F7F0",
         "secondary-light": "#C7CACB",
-        accent: "#F72C25",
-      },
-    },
+        accent: "#F72C25"
+      }
+    }
   },
   variants: {
-    opacity: ["responsive", "hover"],
+    opacity: ["responsive", "hover"]
   },
   // https://github.com/tailwindcss/custom-forms
-  plugins: [require("@tailwindcss/custom-forms")],
+  plugins: [require("@tailwindcss/custom-forms")]
 };

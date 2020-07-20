@@ -30,7 +30,6 @@ export default {
           { title: "Propulsion", value: "propulsion" },
           { title: "Programming", value: "programming" },
           { title: "Outreach", value: "outreach" },
-          { title: "Founder", value: "founder" },
         ], // <-- predefined values
         layout: "radio", // <-- defaults to 'dropdown'
       },

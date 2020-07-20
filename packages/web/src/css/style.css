@@ -5,7 +5,23 @@
 @tailwind utilities;
 
 @import "./typography.css";
+@import "./body.css";
+@import "./heading.css";
 
 .transition {
   transition: 0.3s all ease;
+}
+
+.container {
+  @apply w-full mx-auto px-8;
+}
+@screen md {
+  .container {
+    @apply w-2/3;
+  }
+}
+@screen lg {
+  .container {
+    @apply w-1/2;
+  }
 }

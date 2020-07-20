@@ -32,7 +32,7 @@ function IndexPage({ data }) {
           style={{
             height: "50vh",
             width: "100%",
-            backgroundSize: "contain"
+            backgroundSize: "contain",
           }}
         />
       </section>
