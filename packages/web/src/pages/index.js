@@ -4,33 +4,7 @@ import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Subheading from "../components/subheading";
-import Footer from "../components/footer";
-import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
 const BlockContent = require("@sanity/block-content-to-react");
-
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
 
 function IndexPage({ data }) {
   return (
@@ -58,83 +32,9 @@ function IndexPage({ data }) {
           style={{
             height: "50vh",
             width: "100%",
-            backgroundSize: "contain",
+            backgroundSize: "contain"
           }}
         />
-      </section>
-
-      <section className="container mx-auto flex flex-col bg-primary-dark justify-center text-center">
-        <Subheading heading="Our Mission"></Subheading>
-        <BlockContent blocks={data.settings.nodes[0].mission} />
-
-        <Carousel
-          partialVisbile
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          infinite={true}
-          autoPlay={true}
-          // autoPlaySpeed={7000}
-          keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={5000}
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-160-px"
-        >
-          {data.settings.nodes[0].gallery.map((imgData) => (
-            <div className="container mx-auto">
-              <img
-                style={{ padding: "40px" }}
-                width="1000"
-                src={imgData.asset.fluid.src}
-                alt={imgData.caption}
-              />
-              <p className="container mx-auto" style={{ textAlign: "center" }}>
-                {imgData.caption}
-              </p>
-            </div>
-          ))}
-        </Carousel>
-      </section>
-
-      <section className="flex flex-col bg-primary-dark justify-center">
-        <Subheading heading="Our Timeline"></Subheading>
-
-        <Timeline lineColor={"#ddd"}>
-          {data.timeline.nodes.map((item) => (
-            <TimelineItem
-              key={item.key}
-              dateText={item.date}
-              bodyContainerStyle={timelineBodyContainerStyle}
-              dateInnerStyle={
-                item.finished
-                  ? { background: "#435058" }
-                  : { background: "#F72C25" }
-              }
-              style={
-                item.finished ? { color: "#435058" } : { color: "#F72C25" }
-              }
-            >
-              {item.image && (
-                <BackgroundImage
-                  fluid={item.image.asset.fluid}
-                  className="md:mt-0 -mt-16"
-                  style={{
-                    height: "25vh",
-                    width: "100%",
-                    backgroundSize: "contain",
-                  }}
-                ></BackgroundImage>
-              )}
-              <h3 style={{ color: "#F72C25" }}>{item.title}</h3>
-              <p>{item.description}</p>
-            </TimelineItem>
-          ))}
-        </Timeline>
-      </section>
-
-      <section>
-        <Footer></Footer>
       </section>
     </Layout>
   );
@@ -181,12 +81,5 @@ export const query = graphql`
     }
   }
 `;
-
-export const timelineBodyContainerStyle = {
-  background: "#ddd",
-  padding: "20px",
-  borderRadius: "8px",
-  boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)",
-};
 
 export default IndexPage;
