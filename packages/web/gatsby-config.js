@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: `Project Caelus`,
     description: `Taking the world's first high school liquid-fueled rocket to the edge of space.`,
-    author: `Project Caelus`
+    author: `Project Caelus`,
+    keywords: [`rocketry`, `rocket`, `high-school`, `caelus`, `project caelus`]
   },
   plugins: [
     {

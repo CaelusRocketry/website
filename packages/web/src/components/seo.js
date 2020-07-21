@@ -3,65 +3,55 @@ import PropTypes from "prop-types";
 import React from "react";
 import Helmet from "react-helmet";
 
-function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(graphql`
-    query DefaultSEOQuery {
-      site {
-        siteMetadata {
-          title
-          description
-          author
-        }
-      }
-    }
-  `);
+const SEO = ({ description, lang, meta, keywords, title }) => {
+  const { site } = useStaticQuery(query);
 
   const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang
       }}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:title`,
-          content: title,
+          content: title
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `website`
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary`
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
-        },
+          content: metaDescription
+        }
       ]
         .concat(
           keywords.length > 0
             ? {
                 name: `keywords`,
-                content: keywords.join(`, `),
+                content: keywords.join(`, `)
               }
             : []
         )
@@ -70,12 +60,12 @@ function SEO({ description, lang, meta, keywords, title }) {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
     />
   );
-}
+};
 
 SEO.defaultProps = {
   lang: `en`,
   keywords: [],
-  meta: [],
+  meta: []
 };
 
 SEO.propTypes = {
@@ -83,7 +73,19 @@ SEO.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.string),
   lang: PropTypes.string,
   meta: PropTypes.array,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`;
 
 export default SEO;
