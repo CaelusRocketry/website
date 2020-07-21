@@ -3,7 +3,7 @@
   position: relative;
   display: inline-block;
   font-weight: 500;
-  @apply font-mono uppercase tracking-wider;
+  @apply font-mono tracking-wider;
 }
 .heading::before,
 .heading::after {

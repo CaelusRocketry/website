@@ -22,6 +22,11 @@ export default {
       type: "boolean",
     },
     {
+      title: "Position",
+      name: "position",
+      type: "string",
+    },
+    {
       title: "Team",
       name: "team",
       type: "string",
