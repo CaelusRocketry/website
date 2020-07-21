@@ -18,16 +18,16 @@ const AboutPage = ({ data }) => {
       <SEO title="About" />
       <section className="container mb-12">
         <Image fluid={data.settings.teamImage.asset.fluid} />
-        <caption className="opacity-75 text-base block w-full mt-6">
+        <p className="opacity-75 text-base block w-full mt-6">
           {data.settings.teamImage.caption}
-        </caption>
+        </p>
       </section>
       <section className="container mb-12">
         <h2 className="heading uppercase mb-4 text-4xl" data-text="Mission">
           Mission
         </h2>
         <div className="style-normal">
-          <BlockContent blocks={data.settings.mission} serializers={[]} />
+          <BlockContent blocks={data.settings.mission} serializers={{}} />
         </div>
       </section>
       <section className="container mb-12">
@@ -52,8 +52,8 @@ const AboutPage = ({ data }) => {
               title: "Outreach",
               text: `Contacts sponsors, organizes events, and reaches out to other non-profits for partnerships with events.`
             }
-          ].map(x => (
-            <div className="flex mb-8">
+          ].map((x, i) => (
+            <div className="flex mb-8" key={i}>
               <div className="mr-6 mt-2" style={{ fontSize: "5rem" }}>
                 {x.icon}
               </div>
@@ -73,12 +73,13 @@ const AboutPage = ({ data }) => {
           {data.members.nodes.map((member, i) => (
             <div
               className={`flex flex-wrap mb-6 ${
-                i % 2 == 0 ? "text-left" : "flex-row-reverse text-right"
+                i % 2 === 0 ? "text-left" : "flex-row-reverse text-right"
               }`}
+              key={i}
             >
               <div
                 className={`mt-4 w-full lg:w-1/4 lg:flex ${
-                  i % 2 == 0 ? "mr-6 justify-end" : "ml-6 justify-start"
+                  i % 2 === 0 ? "mr-6 justify-end" : "ml-6 justify-start"
                 }`}
               >
                 {member.portrait ? (
@@ -93,7 +94,7 @@ const AboutPage = ({ data }) => {
               <div className="flex-1">
                 <h3 className="heading text-3xl mb-1">{member.name}</h3>
                 <div className="style-normal">
-                  <BlockContent blocks={member.bio} serializers={[]} />
+                  <BlockContent blocks={member.bio} serializers={{}} />
                 </div>
               </div>
             </div>

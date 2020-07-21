@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
-import BlockContent from "@sanity/block-content-to-react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 import Layout from "../components/layout";
@@ -11,10 +10,10 @@ const BlogPageItem = ({ post }) => (
   <div className="flex-1">
     <h3 className="heading text-3xl mb-1">{post.title}</h3>
     <Link to={`/blog/${post.slug.current}`}>
-      <a className="block text-accent text-xl mb-2">
+      <span className="block text-accent text-xl mb-2">
         Read More
         <FaLongArrowAltRight className="text-2xl inline ml-2" />
-      </a>
+      </span>
     </Link>
     <p className="text-xl mb-2 text-secondary-light">
       Written on

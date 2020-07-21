@@ -17,8 +17,8 @@ const ProjectsPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Projects" />
-      {[true, false].map(inProgress => (
-        <section className="container mb-12">
+      {[true, false].map((inProgress, i) => (
+        <section className="container mb-12" key={i}>
           <h2
             className="heading uppercase mb-4 text-4xl"
             data-text={inProgress ? "In Progress" : "Planned"}
@@ -27,7 +27,7 @@ const ProjectsPage = ({ data }) => {
           </h2>
           <div>
             {data.projects.nodes.map(project => {
-              if (project.inProgress == inProgress) {
+              if (project.inProgress === inProgress) {
                 return (
                   <div
                     className="flex flex-wrap mb-8"
@@ -44,10 +44,10 @@ const ProjectsPage = ({ data }) => {
                     <div className="flex-1">
                       <h3 className="heading text-3xl mb-1">{project.title}</h3>
                       <Link to={`/projects/${project.slug.current}`}>
-                        <a className="block text-accent text-xl mb-2">
+                        <span className="block text-accent text-xl mb-2">
                           Read More
                           <FaLongArrowAltRight className="text-2xl inline ml-2" />
-                        </a>
+                        </span>
                       </Link>
                       <p className="text-xl mb-2 text-secondary-light">
                         Estimated Completion:

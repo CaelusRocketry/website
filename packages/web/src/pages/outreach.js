@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import BlockContent from "@sanity/block-content-to-react";
 import { FaRegCalendar, FaMapMarkerAlt } from "react-icons/fa";

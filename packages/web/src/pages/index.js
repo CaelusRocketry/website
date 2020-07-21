@@ -52,16 +52,16 @@ function IndexPage({ data }) {
               </div>
               <div className="text-lg">
                 <AnchorLink href="#home-mission">
-                  <p className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
+                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
                     Mission
                     <FaLongArrowAltDown className="inline ml-2" />
-                  </p>
+                  </span>
                 </AnchorLink>
                 <AnchorLink href="#home-timeline">
-                  <p className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
+                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
                     Timeline
                     <FaLongArrowAltDown className="inline ml-2" />
-                  </p>
+                  </span>
                 </AnchorLink>
               </div>
             </div>

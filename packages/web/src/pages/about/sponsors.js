@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
-import BlockContent from "@sanity/block-content-to-react";
 
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
@@ -37,7 +36,7 @@ const SponsorsPage = ({ data }) => {
             </h2>
             <div className="flex flex-wrap -mx-4">
               {data.sponsors.nodes.map(sponsor => {
-                if (sponsor.level == level) {
+                if (sponsor.level === level) {
                   return (
                     <div className="w-full mb-8 md:w-1/2 px-4">
                       <a href={sponsor.link}>

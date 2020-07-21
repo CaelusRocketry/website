@@ -66,6 +66,7 @@ const ProjectPage = ({ data: { project } }) => {
                   ? "border-b border-gray-200"
                   : ""
               }`}
+                key={i}
               >
                 <p>{statistic.title}</p>
                 <p>{statistic.value}</p>
