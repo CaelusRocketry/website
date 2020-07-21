@@ -25,3 +25,8 @@
     @apply w-1/2;
   }
 }
+
+.timeline {
+  padding: 0 !important;
+  margin: 0 !important;
+}

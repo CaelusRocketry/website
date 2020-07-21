@@ -4,6 +4,7 @@ import Image from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -39,12 +40,12 @@ function IndexPage({ data }) {
           }}
         />
       </section>
-      <section className="bg-secondary-light text-primary-dark py-12">
+      <section className="bg-secondary-light text-primary-dark py-12 mb-12">
         <div className="container pb-12">
           <h2 className="heading text-4xl mb-4 uppercase" data-text="Mission">
             Mission
           </h2>
-          <div className="body">
+          <div className="style-normal">
             <BlockContent
               blocks={data.settings.mission}
               serializers={{}}
@@ -78,6 +79,43 @@ function IndexPage({ data }) {
             ))}
           </Carousel>
         </div>
+      </section>
+      <section className="w-full md:w-2/3 mx-auto px-8">
+        <h2 className="heading text-4xl mb-8 uppercase" data-text="Timeline">
+          Timeline
+        </h2>
+        <Timeline lineColor={"#C7CACB"} className="w-full" animate={false}>
+          {data.timeline.nodes.map(timelineItem => (
+            <TimelineItem
+              key={timelineItem.key}
+              dateText={timelineItem.date}
+              bodyContainerStyle={{
+                background: "#ddd",
+                padding: "20px",
+                borderRadius: "2px",
+                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)"
+              }}
+              dateInnerStyle={
+                timelineItem.finished
+                  ? { background: "#435058" }
+                  : { background: "#F72C25" }
+              }
+              style={{
+                width: "100%",
+                color: timelineItem.finished ? "#435058" : "#F72C25"
+              }}
+            >
+              {timelineItem.image && (
+                <Image
+                  fluid={timelineItem.image.asset.fluid}
+                  className="mb-4 w-full"
+                />
+              )}
+              <h3 className="heading text-xl">{timelineItem.title}</h3>
+              <p className="mt-2">{timelineItem.description}</p>
+            </TimelineItem>
+          ))}
+        </Timeline>
       </section>
     </Layout>
   );

@@ -26,7 +26,7 @@ const AboutPage = ({ data }) => {
         <h2 className="heading uppercase mb-4 text-4xl" data-text="Mission">
           Mission
         </h2>
-        <div className="body">
+        <div className="style-normal">
           <BlockContent blocks={data.settings.mission} serializers={[]} />
         </div>
       </section>
@@ -92,7 +92,7 @@ const AboutPage = ({ data }) => {
               </div>
               <div className="flex-1">
                 <h3 className="heading text-3xl mb-1">{member.name}</h3>
-                <div className="body">
+                <div className="style-normal">
                   <BlockContent blocks={member.bio} serializers={[]} />
                 </div>
               </div>

@@ -20,7 +20,7 @@ const BlogPageItem = ({ post }) => (
       Written on
       <span className="ml-1">{new Date(post.date).toLocaleDateString()}</span>
     </p>
-    <div className="body">{post.description}</div>
+    <div className="style-normal">{post.description}</div>
   </div>
 );
 

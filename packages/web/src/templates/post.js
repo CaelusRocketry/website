@@ -38,7 +38,7 @@ const PostPage = ({ data: { post } }) => {
           </div>
         </div>
       </section>
-      <section className="container body">
+      <section className="container style-normal">
         <BlockContent
           blocks={post.body}
           serializers={{}}

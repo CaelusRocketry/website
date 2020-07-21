@@ -37,7 +37,7 @@ const OutreachPage = ({ data: { events } }) => {
                   </p>
                 ) : null}
               </div>
-              <div className="body">
+              <div className="style-normal">
                 <BlockContent
                   blocks={event.description}
                   serializers={{}}

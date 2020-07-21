@@ -48,7 +48,7 @@ const ProjectPage = ({ data: { project } }) => {
         <h2 className="heading uppercase mb-2 text-4xl" data-text="Description">
           Description
         </h2>
-        <div className="body">
+        <div className="style-normal">
           <BlockContent blocks={project.description} serializers={{}} />
         </div>
       </section>

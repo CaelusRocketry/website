@@ -55,7 +55,7 @@ const ProjectsPage = ({ data }) => {
                           {dateToString(project.completionDate)}
                         </span>
                       </p>
-                      <div className="body">
+                      <div className="style-normal">
                         <BlockContent
                           blocks={project.description}
                           serializers={{}}
