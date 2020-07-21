@@ -80,10 +80,24 @@ const Header = () => {
 const Footer = () => (
   <div className="w-full p-8">
     <div className="container text-center mx-auto">
-      <p>
+      <p className="mb-4">
         Project Caelus | Copyright © 2018-{new Date().getFullYear()}. All rights
         reserved.
       </p>
+      <div className="flex justify-center">
+        <a href="https://www.facebook.com/projectcaelus">
+          <FaFacebook className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
+        </a>
+        <a href="https://www.instagram.com/project.caelus">
+          <FaInstagram className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
+        </a>
+        <a href="https://www.youtube.com/channel/UCmEHZ7KGBH_jcsugP_SLY8w">
+          <FaYoutube className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
+        </a>
+        <a href="https://www.linkedin.com/company/projectcaelus">
+          <FaLinkedin className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
+        </a>
+      </div>
     </div>
   </div>
 );

@@ -101,7 +101,7 @@ function IndexPage({ data }) {
             ssr={true} // means to render carousel on server-side.
             infiniteLoop={true}
             autoPlay={true}
-            dynamicHeight={true}
+            dynamicHeight={false}
             showThumbs={false}
             showIndicators={true}
             showStatus={true}
@@ -109,12 +109,23 @@ function IndexPage({ data }) {
             keyBoardControl={true}
             customTransition="all .5"
             transitionDuration={5000}
-            className="bg-secondary-light"
+            className="bg-secondary-light border border-secondary-dark"
           >
             {data.settings.gallery.map(image => (
-              <div className="bg-secondary-light relative" key={image["_key"]}>
-                <Image fluid={image.asset.fluid} alt={image.caption} />
-                <p className="bg-secondary-light py-4 mb-12 absolute bottom-0 left-0 w-full">
+              <div
+                className="bg-secondary-light relative"
+                key={image["_key"]}
+                style={{ height: "400px" }}
+              >
+                <Image
+                  fluid={image.asset.fluid}
+                  alt={image.caption}
+                  style={{ height: "100%" }}
+                />
+                <p
+                  className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
+                    left-0 w-full border-t border-b border-secondary-dark`}
+                >
                   {image.caption}
                 </p>
               </div>
