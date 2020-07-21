@@ -56,11 +56,6 @@ export default {
       type: "datetime",
     },
     {
-      title: "Statistics Avaliable",
-      name: "statisticsAvaliable",
-      type: "boolean",
-    },
-    {
       title: "Statistics",
       name: "statistics",
       type: "array",
