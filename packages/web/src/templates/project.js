@@ -56,21 +56,23 @@ const ProjectPage = ({ data: { project } }) => {
         <h2 className="heading uppercase mb-2 text-4xl" data-text="Statistics">
           Statistics
         </h2>
-        <div>
-          {project.statistics.map((statistic, i) => (
-            <div
-              className={`transition p-4 flex justify-between hover:bg-red-300 hover:text-primary-dark
+        {project.statistics && project.statistics.length > 0 ? (
+          <div>
+            {project.statistics.map((statistic, i) => (
+              <div
+                className={`transition p-4 flex justify-between hover:bg-red-300 hover:text-primary-dark
               ${
                 i < project.statistics.length - 1
                   ? "border-b border-gray-200"
                   : ""
               }`}
-            >
-              <p>{statistic.title}</p>
-              <p>{statistic.value}</p>
-            </div>
-          ))}
-        </div>
+              >
+                <p>{statistic.title}</p>
+                <p>{statistic.value}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </section>
     </Layout>
   );
