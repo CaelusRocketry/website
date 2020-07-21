@@ -59,6 +59,8 @@ const ProjectsPage = ({ data }) => {
                         <BlockContent
                           blocks={project.description}
                           serializers={{}}
+                          projectId={process.env.GATSBY_SANITY_ID}
+                          dataset={process.env.GATSBY_SANITY_DATASET}
                         />
                       </div>
                     </div>

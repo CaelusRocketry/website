@@ -56,7 +56,7 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    posts: allSanityPost(sort: { fields: date }) {
+    posts: allSanityPost(sort: { fields: date, order: DESC }) {
       nodes {
         description
         slug {

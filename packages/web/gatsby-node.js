@@ -28,6 +28,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: _id
         }
       }
+      posts: allSanityPost {
+        nodes {
+          slug {
+            current
+          }
+          id: _id
+        }
+      }
     }
   `);
   if (query.errors) {
@@ -43,6 +51,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: ProjectTemplate,
       context: {
         id: project.id
+      }
+    });
+  });
+
+  const Posts = query.data.posts.nodes;
+  const PostTemplate = path.resolve("./src/templates/post.js");
+  Posts.forEach(post => {
+    createPage({
+      path: `/blog/${post.slug.current}`,
+      component: PostTemplate,
+      context: {
+        id: post.id
       }
     });
   });

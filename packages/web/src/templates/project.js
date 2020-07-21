@@ -32,7 +32,9 @@ const ProjectPage = ({ data: { project } }) => {
               project.image ? "md:w-1/2" : ""
             }`}
           >
-            <h1 className="text-4xl font-bold">{project.title}</h1>
+            <h1 className="text-4xl font-bold leading-tight mb-4">
+              {project.title}
+            </h1>
             <p className="text-xl mb-2 text-secondary-dark">
               Estimated Completion:
               <span className="ml-1">
