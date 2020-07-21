@@ -5,6 +5,8 @@ import BackgroundImage from "gatsby-background-image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -30,22 +32,38 @@ function IndexPage({ data }) {
         </div>
         <div className="flex items-center justify-center mx-8 lg:mx-32 my-8 lg:my-20 w-full">
           <div className="flex flex-wrap h-full w-full overflow-hidden">
-            <div className="bg-accent p-6 lg:p-12 w-full lg:w-1/2 z-10">
-              <h1
-                className="uppercase leading-snug mb-2"
-                style={{ fontSize: "calc(4vw + 30px)" }}
-              >
-                <span className="heading" data-text="Project">
-                  Project
-                </span>{" "}
-                <span className="heading" data-text="Caelus">
-                  Caelus
-                </span>
-              </h1>
-              <p className="" style={{ fontSize: "calc(1.5vw + 10px)" }}>
-                The first high-school group to take a liquid-fuel rocket to
-                space.
-              </p>
+            <div className="bg-accent p-6 lg:p-12 w-full lg:w-1/2 z-10 flex flex-col justify-between">
+              <div>
+                <h1
+                  className="uppercase leading-snug mb-2"
+                  style={{ fontSize: "calc(4vw + 30px)" }}
+                >
+                  <span className="heading" data-text="Project">
+                    Project
+                  </span>{" "}
+                  <span className="heading" data-text="Caelus">
+                    Caelus
+                  </span>
+                </h1>
+                <p className="mb-4" style={{ fontSize: "calc(1.5vw + 15px)" }}>
+                  The first high-school group to take a liquid-fuel rocket to
+                  space.
+                </p>
+              </div>
+              <div className="text-lg">
+                <AnchorLink href="#home-mission">
+                  <p className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
+                    Mission
+                    <FaLongArrowAltDown className="inline ml-2" />
+                  </p>
+                </AnchorLink>
+                <AnchorLink href="#home-timeline">
+                  <p className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
+                    Timeline
+                    <FaLongArrowAltDown className="inline ml-2" />
+                  </p>
+                </AnchorLink>
+              </div>
             </div>
             <div className="w-full lg:w-1/2 border-4 border-accent flex items-center justify-center">
               <BackgroundImage
@@ -61,7 +79,10 @@ function IndexPage({ data }) {
           </div>
         </div>
       </section>
-      <section className="bg-secondary-light text-primary-dark py-12 mb-12">
+      <section
+        className="bg-secondary-light text-primary-dark py-12 mb-12"
+        id="home-mission"
+      >
         <div className="container pb-12">
           <h2 className="heading text-4xl mb-4 uppercase" data-text="Mission">
             Mission
@@ -101,7 +122,7 @@ function IndexPage({ data }) {
           </Carousel>
         </div>
       </section>
-      <section className="w-full md:w-2/3 mx-auto px-8">
+      <section className="w-full md:w-2/3 mx-auto px-8" id="home-timeline">
         <h2 className="heading text-4xl mb-8 uppercase" data-text="Timeline">
           Timeline
         </h2>
