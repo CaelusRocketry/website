@@ -82,10 +82,6 @@ export const query = graphql`
           current
         }
         inProgress
-        statistics {
-          title
-          value
-        }
         title
         completionDate
         image {

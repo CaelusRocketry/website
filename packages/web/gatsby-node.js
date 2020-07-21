@@ -9,9 +9,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "~css": path.resolve(__dirname, "src/css"),
         "~images": path.resolve(__dirname, "src/images"),
         //'~utils': path.resolve(__dirname, 'src/utils'),
-        "~templates": path.resolve(__dirname, "src/templates"),
-      },
-    },
+        "~templates": path.resolve(__dirname, "src/templates")
+      }
+    }
   });
 };
 
@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const query = await graphql(`
     {
-      posts: allSanityPost {
+      projects: allSanityProject {
         nodes {
           slug {
             current
@@ -35,17 +35,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  /*
-  const Posts = query.data.posts.nodes;
-  const PostTemplate = path.resolve("./src/templates/posttemplate.js");
-  Posts.forEach(post => {
+  const Projects = query.data.projects.nodes;
+  const ProjectTemplate = path.resolve("./src/templates/project.js");
+  Projects.forEach(project => {
     createPage({
-      path: `/blog/${post.slug.current}`,
-      component: PostTemplate,
+      path: `/projects/${project.slug.current}`,
+      component: ProjectTemplate,
       context: {
-        id: post.id
+        id: project.id
       }
     });
   });
-  */
 };
