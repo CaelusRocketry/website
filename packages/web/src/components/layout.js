@@ -9,7 +9,7 @@ const Header = () => {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
-    <header className="bg-primary-dark">
+    <header className="bg-transparent z-10">
       <div className="flex flex-wrap items-center justify-between max-w-5xl mx-auto p-4 md:p-8">
         <Link className="flex items-center no-underline text-white" to="/">
           <img src={Logo} className="mr-4 h-10 md:py-0 py-1" />

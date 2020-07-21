@@ -17,28 +17,49 @@ function IndexPage({ data }) {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Home"
       />
-
       <section
-        className="flex flex-col bg-primary-dark justify-center"
-        style={{ height: "90vh" }}
+        className="flex bg-primary-dark z-10 overflow-hidden h-full lg:-mt-16"
+        style={{
+          minHeight: "95vh"
+        }}
       >
-        <div className="p-8 text-center">
-          <h1 className="md:text-5xl text-4xl font-bold border-b-4 border-dashed border-accent inline-block mb-4">
-            Project Caelus
-          </h1>
-          <p className="md:text-2xl text-xl">
-            The first high-school group to take a liquid-fuel rocket to space.
-          </p>
+        <div className="relative" style={{ height: "100%" }}>
+          <div id="stars-1"></div>
+          <div id="stars-2"></div>
+          <div id="stars-3"></div>
         </div>
-        <BackgroundImage
-          fluid={data.rocket.childImageSharp.fluid}
-          className="md:mt-0 -mt-16"
-          style={{
-            height: "50vh",
-            width: "100%",
-            backgroundSize: "contain"
-          }}
-        />
+        <div className="flex items-center justify-center mx-8 lg:mx-32 my-8 lg:my-20 w-full">
+          <div className="flex flex-wrap h-full w-full overflow-hidden">
+            <div className="bg-accent p-6 lg:p-12 w-full lg:w-1/2 z-10">
+              <h1
+                className="uppercase leading-snug mb-2"
+                style={{ fontSize: "calc(4vw + 30px)" }}
+              >
+                <span className="heading" data-text="Project">
+                  Project
+                </span>{" "}
+                <span className="heading" data-text="Caelus">
+                  Caelus
+                </span>
+              </h1>
+              <p className="" style={{ fontSize: "calc(1.5vw + 10px)" }}>
+                The first high-school group to take a liquid-fuel rocket to
+                space.
+              </p>
+            </div>
+            <div className="w-full lg:w-1/2 border-4 border-accent flex items-center justify-center">
+              <BackgroundImage
+                fluid={data.rocket.childImageSharp.fluid}
+                className="md:mt-0 -mt-16"
+                style={{
+                  height: "50vh",
+                  width: "100%",
+                  backgroundSize: "contain"
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </section>
       <section className="bg-secondary-light text-primary-dark py-12 mb-12">
         <div className="container pb-12">
@@ -57,7 +78,7 @@ function IndexPage({ data }) {
         <div className="container">
           <Carousel
             ssr={true} // means to render carousel on server-side.
-            infinite={true}
+            infiniteLoop={true}
             autoPlay={true}
             dynamicHeight={true}
             showThumbs={false}

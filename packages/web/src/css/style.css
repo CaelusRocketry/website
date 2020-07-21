@@ -7,6 +7,7 @@
 @import "./typography.css";
 @import "./body.css";
 @import "./heading.css";
+@import "./stars.css";
 
 .transition {
   transition: 0.3s all ease;
@@ -29,4 +30,5 @@
 .timeline {
   padding: 0 !important;
   margin: 0 !important;
+  max-width: none !important;
 }
