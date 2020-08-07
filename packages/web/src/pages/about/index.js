@@ -72,14 +72,16 @@ const AboutPage = ({ data }) => {
         <div>
           {data.members.nodes.map((member, i) => (
             <div
-              className={`flex flex-wrap mb-6 ${
+              className={`flex flex-wrap mb-8 ${
                 i % 2 === 0 ? "text-left" : "flex-row-reverse text-right"
               }`}
               key={i}
             >
               <div
-                className={`mt-4 w-full lg:w-1/4 lg:flex ${
-                  i % 2 === 0 ? "mr-6 justify-end" : "ml-6 justify-start"
+                className={`mt-4 w-full lg:w-1/4 lg:flex mb-4 ${
+                  i % 2 === 0
+                    ? "mr-6 justify-end text-left"
+                    : "ml-6 justify-start text-right"
                 }`}
               >
                 {member.portrait ? (
@@ -88,7 +90,10 @@ const AboutPage = ({ data }) => {
                     fixed={member.portrait.asset.fixed}
                   />
                 ) : (
-                  <FaUserAlt className="mx-4" style={{ fontSize: "6rem" }} />
+                  <FaUserAlt
+                    className={`lg:mx-4 ${i % 2 === 0 ? "mr-auto" : "ml-auto"}`}
+                    style={{ fontSize: "7rem" }}
+                  />
                 )}
               </div>
               <div className="flex-1">
