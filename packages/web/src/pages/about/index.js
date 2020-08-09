@@ -32,7 +32,6 @@ const AboutPage = ({ data }) => {
     .sort((m1, m2) => (m2.name == "Jason Chen") ? 1 : -1)
     .concat(members.filter((m) => !m.leadership));
 
-  console.log(members);
   return (
     <Layout>
       <SEO title="About" />

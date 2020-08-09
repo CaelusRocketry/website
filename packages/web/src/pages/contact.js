@@ -33,10 +33,8 @@ const ContactPage = ({ data }) => {
       <section className="container">
         <Formik
           initialValues={{ name: "", email: "", subject: "", message: "" }}
-          validate={(values) => {
+          validate={values => {
             const errors = {};
-
-            console.log(values);
 
             if (!values.name) {
               errors.name = "A name is required";
