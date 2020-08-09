@@ -13,8 +13,7 @@ import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
 // Fisher-Yates shuffle for use on members
-Array.prototype.shuffle = function () {
-  let input = this;
+const shuffle = (input) => {
 
   for (let i = input.length - 1; i >= 0; i--) {
     let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -28,11 +27,12 @@ Array.prototype.shuffle = function () {
 
 const AboutPage = ({ data }) => {
   // Shuffle members, putting Jason and leadership before everyone else
-  const members = data.members.nodes
-    .filter((m) => m.leadership)
-    .shuffle()
-    .concat(data.members.nodes.filter((m) => !m.leadership).shuffle())
-    .sort((_, m) => m.name == "Jason Chen");
+  let members = shuffle(data.members.nodes);
+  members = members.filter((m) => m.leadership)
+    .sort((m1, m2) => (m2.name == "Jason Chen") ? 1 : -1)
+    .concat(members.filter((m) => !m.leadership));
+
+  console.log(members);
   return (
     <Layout>
       <SEO title="About" />
