@@ -6,13 +6,33 @@ import {
   FaRegFileCode,
   FaAtom,
   FaPencilRuler,
-  FaUserAlt
+  FaUserAlt,
 } from "react-icons/fa";
 
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
+// Fisher-Yates shuffle for use on members
+Array.prototype.shuffle = function () {
+  let input = this;
+
+  for (let i = input.length - 1; i >= 0; i--) {
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    let itemAtIndex = input[randomIndex];
+
+    input[randomIndex] = input[i];
+    input[i] = itemAtIndex;
+  }
+  return input;
+};
+
 const AboutPage = ({ data }) => {
+  // Shuffle members, putting Jason and leadership before everyone else
+  const members = data.members.nodes
+    .filter((m) => m.leadership)
+    .shuffle()
+    .concat(data.members.nodes.filter((m) => !m.leadership).shuffle())
+    .sort((_, m) => m.name == "Jason Chen");
   return (
     <Layout>
       <SEO title="About" />
@@ -40,18 +60,18 @@ const AboutPage = ({ data }) => {
               icon: <FaRegFileCode />,
               title: "Programming",
               text: `Codes ground software and flight software, which is necessary
-                for monitoring the sensor values during tests.`
+                for monitoring the sensor values during tests.`,
             },
             {
               icon: <FaAtom />,
               title: "Propulsion",
-              text: `Does rocket calculations, uses CAD to design rocket parts, and utilizes MATLAB for flight simulations.`
+              text: `Does rocket calculations, uses CAD to design rocket parts, and utilizes MATLAB for flight simulations.`,
             },
             {
               icon: <FaPencilRuler />,
               title: "Outreach",
-              text: `Contacts sponsors, organizes events, and reaches out to other non-profits for partnerships with events.`
-            }
+              text: `Contacts sponsors, organizes events, and reaches out to other non-profits for partnerships with events.`,
+            },
           ].map((x, i) => (
             <div className="flex mb-8" key={i}>
               <div className="mr-6 mt-2" style={{ fontSize: "5rem" }}>
@@ -70,7 +90,7 @@ const AboutPage = ({ data }) => {
           Members
         </h2>
         <div>
-          {data.members.nodes.map((member, i) => (
+          {members.map((member, i) => (
             <div
               className={`flex flex-wrap mb-8 ${
                 i % 2 === 0 ? "text-left" : "flex-row-reverse text-right"
@@ -128,6 +148,7 @@ export const query = graphql`
         name
         team
         bio: _rawBio
+        leadership
         portrait {
           asset {
             fixed(height: 200, width: 200) {

@@ -9,9 +9,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "~css": path.resolve(__dirname, "src/css"),
         "~images": path.resolve(__dirname, "src/images"),
         //'~utils': path.resolve(__dirname, 'src/utils'),
-        "~templates": path.resolve(__dirname, "src/templates")
-      }
-    }
+        "~templates": path.resolve(__dirname, "src/templates"),
+      },
+    },
   });
 };
 
@@ -45,25 +45,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const Projects = query.data.projects.nodes;
   const ProjectTemplate = path.resolve("./src/templates/project.js");
-  Projects.forEach(project => {
+  Projects.forEach((project) => {
     createPage({
       path: `/projects/${project.slug.current}`,
       component: ProjectTemplate,
       context: {
-        id: project.id
-      }
+        id: project.id,
+      },
     });
   });
 
   const Posts = query.data.posts.nodes;
   const PostTemplate = path.resolve("./src/templates/post.js");
-  Posts.forEach(post => {
+  Posts.forEach((post) => {
     createPage({
       path: `/blog/${post.slug.current}`,
       component: PostTemplate,
       context: {
-        id: post.id
-      }
+        id: post.id,
+      },
     });
   });
 };

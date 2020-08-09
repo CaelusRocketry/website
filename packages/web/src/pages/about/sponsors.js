@@ -6,7 +6,7 @@ import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
 const SponsorsPage = ({ data }) => {
-  const color = level => {
+  const color = (level) => {
     switch (level) {
       case "platinum":
         return "slategray";
@@ -23,19 +23,19 @@ const SponsorsPage = ({ data }) => {
     <Layout>
       <SEO title="Sponsors" />
       <section className="container mb-12">
-        {["platinum", "gold", "silver"].map(level => (
+        {["platinum", "gold", "silver"].map((level) => (
           <div className="mb-8">
             <h2
               className="heading text-4xl mb-4"
               data-text={level.toUpperCase()}
               style={{
-                textShadow: `0 0 3px ${color(level)}, 0 0 3px ${color(level)}`
+                textShadow: `0 0 3px ${color(level)}, 0 0 3px ${color(level)}`,
               }}
             >
               {level.toUpperCase()}
             </h2>
             <div className="flex flex-wrap -mx-4">
-              {data.sponsors.nodes.map(sponsor => {
+              {data.sponsors.nodes.map((sponsor) => {
                 if (sponsor.level === level) {
                   return (
                     <div className="w-full mb-8 md:w-1/2 px-4">

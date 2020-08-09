@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const ProjectsPage = ({ data }) => {
-  const dateToString = dateString => {
+  const dateToString = (dateString) => {
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     return `${month} ${date.getFullYear()}`;
@@ -26,7 +26,7 @@ const ProjectsPage = ({ data }) => {
             {inProgress ? "In Progress" : "Planned"}
           </h2>
           <div>
-            {data.projects.nodes.map(project => {
+            {data.projects.nodes.map((project) => {
               if (project.inProgress === inProgress) {
                 return (
                   <div

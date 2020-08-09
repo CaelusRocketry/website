@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const ProjectPage = ({ data: { project } }) => {
-  const dateToString = dateString => {
+  const dateToString = (dateString) => {
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     return `${month} ${date.getFullYear()}`;

@@ -22,7 +22,7 @@ function IndexPage({ data }) {
       <section
         className="flex bg-primary-dark z-10 overflow-hidden h-full lg:-mt-16"
         style={{
-          minHeight: "95vh"
+          minHeight: "95vh",
         }}
       >
         <div className="relative" style={{ height: "100%" }}>
@@ -72,7 +72,7 @@ function IndexPage({ data }) {
                 style={{
                   height: "50vh",
                   width: "100%",
-                  backgroundSize: "contain"
+                  backgroundSize: "contain",
                 }}
               />
             </div>
@@ -111,7 +111,7 @@ function IndexPage({ data }) {
             transitionDuration={5000}
             className="bg-secondary-light border border-secondary-dark"
           >
-            {data.settings.gallery.map(image => (
+            {data.settings.gallery.map((image) => (
               <div
                 className="bg-secondary-light relative"
                 key={image["_key"]}
@@ -138,7 +138,7 @@ function IndexPage({ data }) {
           Timeline
         </h2>
         <Timeline lineColor={"#C7CACB"} className="w-full" animate={false}>
-          {data.timeline.nodes.map(timelineItem => (
+          {data.timeline.nodes.map((timelineItem) => (
             <TimelineItem
               key={timelineItem.key}
               dateText={timelineItem.date}
@@ -146,7 +146,7 @@ function IndexPage({ data }) {
                 background: "#ddd",
                 padding: "20px",
                 borderRadius: "2px",
-                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)"
+                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)",
               }}
               dateInnerStyle={
                 timelineItem.finished
@@ -155,7 +155,7 @@ function IndexPage({ data }) {
               }
               style={{
                 width: "100%",
-                color: timelineItem.finished ? "#435058" : "#F72C25"
+                color: timelineItem.finished ? "#435058" : "#F72C25",
               }}
             >
               {timelineItem.image && (

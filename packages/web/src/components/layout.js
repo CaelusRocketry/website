@@ -40,29 +40,29 @@ const Header = () => {
           {[
             {
               route: `/`,
-              title: `Home`
+              title: `Home`,
             },
             {
               route: `/about`,
-              title: `About`
+              title: `About`,
             },
             {
               route: "/projects",
-              title: "Projects"
+              title: "Projects",
             },
             {
               route: "/blog",
-              title: "Blog"
+              title: "Blog",
             },
             {
               route: `/contact`,
-              title: `Contact`
+              title: `Contact`,
             },
             {
               route: `/outreach`,
-              title: `Outreach`
-            }
-          ].map(link => (
+              title: `Outreach`,
+            },
+          ].map((link) => (
             <Link
               className="block md:inline-block mt-4 md:mt-0 md:ml-6 no-underline text-white"
               key={link.title}
@@ -120,7 +120,7 @@ function Layout({ children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

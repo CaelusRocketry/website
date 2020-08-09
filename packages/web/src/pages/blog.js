@@ -38,7 +38,7 @@ const BlogPage = ({ data }) => {
         <BlogPageItem post={mainPost} />
       </section>
       <section className="container">
-        {data.posts.nodes.slice(1).map(post => (
+        {data.posts.nodes.slice(1).map((post) => (
           <div className="flex flex-wrap mb-8" key={post.slug.current}>
             {post.image ? (
               <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
