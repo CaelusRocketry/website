@@ -2,6 +2,7 @@ export default {
   title: "Settings",
   name: "settings",
   type: "document",
+  fieldsets: [{ name: "documentation", title: "Documentation" }],
   fields: [
     {
       title: "Mission",
@@ -30,6 +31,25 @@ export default {
       name: "gallery",
       type: "array",
       of: [{ type: "picture" }],
+    },
+    {
+      title: "Open-Source Mission",
+      name: "openSourceMission",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      title: "Open-Source Documents",
+      name: "openSourceDocuments",
+      type: "array",
+      of: [
+        {
+          type: "file",
+          options: {
+            accept: ".pdf",
+          },
+        },
+      ],
     },
   ],
 };
