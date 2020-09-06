@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
@@ -22,7 +22,7 @@ function IndexPage({ data }) {
       <section
         className="flex bg-primary-dark z-10 overflow-hidden h-full lg:-mt-16"
         style={{
-          minHeight: "95vh",
+          minHeight: "95vh"
         }}
       >
         <div className="relative" style={{ height: "100%" }}>
@@ -72,7 +72,7 @@ function IndexPage({ data }) {
                 style={{
                   height: "50vh",
                   width: "100%",
-                  backgroundSize: "contain",
+                  backgroundSize: "contain"
                 }}
               />
             </div>
@@ -111,7 +111,7 @@ function IndexPage({ data }) {
             transitionDuration={5000}
             className="bg-secondary-light border border-secondary-dark"
           >
-            {data.settings.gallery.map((image) => (
+            {data.settings.gallery.map(image => (
               <div
                 className="bg-secondary-light relative"
                 key={image["_key"]}
@@ -133,12 +133,15 @@ function IndexPage({ data }) {
           </Carousel>
         </div>
       </section>
-      <section className="w-full md:w-2/3 mx-auto px-8" id="home-timeline">
+      <section
+        className="w-full md:w-2/3 mx-auto px-8 pb-12"
+        id="home-timeline"
+      >
         <h2 className="heading text-4xl mb-8 uppercase" data-text="Timeline">
           Timeline
         </h2>
         <Timeline lineColor={"#C7CACB"} className="w-full" animate={false}>
-          {data.timeline.nodes.map((timelineItem) => (
+          {data.timeline.nodes.map(timelineItem => (
             <TimelineItem
               key={timelineItem.key}
               dateText={timelineItem.date}
@@ -146,7 +149,7 @@ function IndexPage({ data }) {
                 background: "#ddd",
                 padding: "20px",
                 borderRadius: "2px",
-                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)",
+                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)"
               }}
               dateInnerStyle={
                 timelineItem.finished
@@ -155,7 +158,7 @@ function IndexPage({ data }) {
               }
               style={{
                 width: "100%",
-                color: timelineItem.finished ? "#435058" : "#F72C25",
+                color: timelineItem.finished ? "#435058" : "#F72C25"
               }}
             >
               {timelineItem.image && (
@@ -169,6 +172,42 @@ function IndexPage({ data }) {
             </TimelineItem>
           ))}
         </Timeline>
+      </section>
+      <section
+        className="bg-secondary-light text-primary-dark py-12"
+        id="home-opensource"
+      >
+        <div className="container">
+          <h2
+            className="heading text-4xl mb-4 uppercase"
+            data-text="Open-Source"
+          >
+            Open-Source
+          </h2>
+          <div className="style-normal">
+            <BlockContent
+              blocks={data.settings.opensourceMission}
+              serializers={{}}
+              projectId={process.env.GATSBY_SANITY_ID}
+              dataset={process.env.GATSBY_SANITY_DATASET}
+            />
+          </div>
+          <div className="mt-8">
+            {data.settings.opensourceDocuments.map((opensourceDoc, i) => (
+              <object
+                width="100%"
+                height="500"
+                data={opensourceDoc.asset.url}
+                type="application/pdf"
+                name="Document"
+                key={i}
+                className="mb-4"
+              >
+                File not found.
+              </object>
+            ))}
+          </div>
+        </div>
       </section>
     </Layout>
   );
@@ -185,6 +224,12 @@ export const query = graphql`
     }
     settings: sanitySettings {
       mission: _rawMission
+      opensourceMission: _rawOpenSourceMission
+      opensourceDocuments: openSourceDocuments {
+        asset {
+          url
+        }
+      }
       gallery {
         _key
         caption
