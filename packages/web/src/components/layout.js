@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { FaFacebook, FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
+import { SiGofundme } from "react-icons/si";
 
 import Logo from "../../static/brand/banner/banner_W-B.svg";
 
@@ -96,6 +97,9 @@ const Footer = () => (
         </a>
         <a href="https://www.linkedin.com/company/projectcaelus">
           <FaLinkedin className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
+        </a>
+        <a href="https://www.gofundme.com/f/project-caelus">
+          <SiGofundme className="transition opacity-75 hover:opacity-100 text-2xl mx-2" />
         </a>
       </div>
     </div>
