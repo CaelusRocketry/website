@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const ProjectsPage = ({ data }) => {
-  const dateToString = (dateString) => {
+  const dateToString = dateString => {
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     return `${month} ${date.getFullYear()}`;
@@ -26,7 +26,7 @@ const ProjectsPage = ({ data }) => {
             {inProgress ? "In Progress" : "Planned"}
           </h2>
           <div>
-            {data.projects.nodes.map((project) => {
+            {data.projects.nodes.map(project => {
               if (project.inProgress === inProgress) {
                 return (
                   <div
@@ -37,6 +37,7 @@ const ProjectsPage = ({ data }) => {
                       <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
                         <Image
                           className="w-full"
+                          style={{ height: "500px" }}
                           fluid={project.image.asset.fluid}
                         />
                       </div>
@@ -55,14 +56,7 @@ const ProjectsPage = ({ data }) => {
                           {dateToString(project.completionDate)}
                         </span>
                       </p>
-                      <div className="style-normal">
-                        <BlockContent
-                          blocks={project.description}
-                          serializers={{}}
-                          projectId={process.env.GATSBY_SANITY_ID}
-                          dataset={process.env.GATSBY_SANITY_DATASET}
-                        />
-                      </div>
+                      <div className="style-normal">{project.summary}</div>
                     </div>
                   </div>
                 );
@@ -79,7 +73,7 @@ export const query = graphql`
   query {
     projects: allSanityProject(sort: { fields: completionDate }) {
       nodes {
-        description: _rawDescription
+        summary
         slug {
           current
         }

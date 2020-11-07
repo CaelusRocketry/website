@@ -40,6 +40,11 @@ export default {
       type: "image",
     },
     {
+      title: "Summary",
+      name: "summary",
+      type: "text",
+    },
+    {
       title: "Description",
       name: "description",
       type: "array",

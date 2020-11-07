@@ -6,15 +6,14 @@ import {
   FaRegFileCode,
   FaAtom,
   FaPencilRuler,
-  FaUserAlt,
+  FaUserAlt
 } from "react-icons/fa";
 
 import Layout from "../../components/layout";
 import SEO from "../../components/seo";
 
 // Fisher-Yates shuffle for use on members
-const shuffle = (input) => {
-
+const shuffle = input => {
   for (let i = input.length - 1; i >= 0; i--) {
     let randomIndex = Math.floor(Math.random() * (i + 1));
     let itemAtIndex = input[randomIndex];
@@ -28,9 +27,10 @@ const shuffle = (input) => {
 const AboutPage = ({ data }) => {
   // Shuffle members, putting Jason and leadership before everyone else
   let members = shuffle(data.members.nodes);
-  members = members.filter((m) => m.leadership)
-    .sort((m1, m2) => (m2.name == "Jason Chen") ? 1 : -1)
-    .concat(members.filter((m) => !m.leadership));
+  members = members
+    .filter(m => m.leadership)
+    .sort((m1, m2) => (m2.name == "Jason Chen" ? 1 : -1))
+    .concat(members.filter(m => !m.leadership));
 
   return (
     <Layout>
@@ -46,7 +46,12 @@ const AboutPage = ({ data }) => {
           Mission
         </h2>
         <div className="style-normal">
-          <BlockContent blocks={data.settings.mission} serializers={{}} />
+          <BlockContent
+            blocks={data.settings.mission}
+            serializers={{}}
+            projectId={process.env.GATSBY_SANITY_ID}
+            dataset={process.env.GATSBY_SANITY_DATASET}
+          />
         </div>
       </section>
       <section className="container mb-12">
@@ -59,18 +64,18 @@ const AboutPage = ({ data }) => {
               icon: <FaRegFileCode />,
               title: "Programming",
               text: `Codes ground software and flight software, which is necessary
-                for monitoring the sensor values during tests.`,
+                for monitoring the sensor values during tests.`
             },
             {
               icon: <FaAtom />,
               title: "Propulsion",
-              text: `Does rocket calculations, uses CAD to design rocket parts, and utilizes MATLAB for flight simulations.`,
+              text: `Does rocket calculations, uses CAD to design rocket parts, and utilizes MATLAB for flight simulations.`
             },
             {
               icon: <FaPencilRuler />,
               title: "Outreach",
-              text: `Contacts sponsors, organizes events, and reaches out to other non-profits for partnerships with events.`,
-            },
+              text: `Contacts sponsors, organizes events, and reaches out to other non-profits for partnerships with events.`
+            }
           ].map((x, i) => (
             <div className="flex mb-8" key={i}>
               <div className="mr-6 mt-2" style={{ fontSize: "5rem" }}>
@@ -118,7 +123,12 @@ const AboutPage = ({ data }) => {
               <div className="flex-1">
                 <h3 className="heading text-3xl mb-1">{member.name}</h3>
                 <div className="style-normal">
-                  <BlockContent blocks={member.bio} serializers={{}} />
+                  <BlockContent
+                    blocks={member.bio}
+                    serializers={{}}
+                    projectId={process.env.GATSBY_SANITY_ID}
+                    dataset={process.env.GATSBY_SANITY_DATASET}
+                  />
                 </div>
               </div>
             </div>
