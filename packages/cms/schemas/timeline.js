@@ -29,6 +29,12 @@ export default {
       type: "text",
     },
     {
+      title: "Project",
+      name: "project",
+      type: "reference",
+      to: [{ type: "project" }],
+    },
+    {
       title: "Image",
       name: "image",
       type: "image",

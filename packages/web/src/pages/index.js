@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { FaLongArrowAltDown } from "react-icons/fa";
+import { FaLongArrowAltDown, FaLongArrowAltRight } from "react-icons/fa";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -169,6 +169,14 @@ function IndexPage({ data }) {
               )}
               <h3 className="heading text-xl">{timelineItem.title}</h3>
               <p className="mt-2">{timelineItem.description}</p>
+              {timelineItem.project ? (
+                <Link to={`/projects/${timelineItem.project.slug.current}`}>
+                  <span className="block text-accent text-xl mt-2">
+                    Read More
+                    <FaLongArrowAltRight className="text-2xl inline ml-2" />
+                  </span>
+                </Link>
+              ) : null}
             </TimelineItem>
           ))}
         </Timeline>
@@ -247,6 +255,11 @@ export const query = graphql`
         finished
         title
         description
+        project {
+          slug {
+            current
+          }
+        }
         image {
           asset {
             fluid {
