@@ -51,9 +51,17 @@ export default {
       of: [{ type: "block" }, { type: "image" }],
     },
     {
-      title: "In Progress",
-      name: "inProgress",
-      type: "boolean",
+      title: "Status",
+      name: "status",
+      type: "string",
+      options: {
+        list: [
+          { title: "Completed", value: "completed" },
+          { title: "In-Progress", value: "current" },
+          { title: "Planned", value: "planned" },
+        ],
+        layout: "dropdown",
+      },
     },
     {
       title: "Completion Date",

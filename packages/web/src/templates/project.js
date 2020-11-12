@@ -36,7 +36,9 @@ const ProjectPage = ({ data: { project } }) => {
               {project.title}
             </h1>
             <p className="text-xl mb-2 text-secondary-dark">
-              Estimated Completion:
+              {project.status == "completed"
+                ? "Completed:"
+                : "Estimated Completion:"}
               <span className="ml-1">
                 {dateToString(project.completionDate)}
               </span>
@@ -91,7 +93,7 @@ export const query = graphql`
       slug {
         current
       }
-      inProgress
+      status
       statistics {
         title
         value

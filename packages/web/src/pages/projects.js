@@ -17,54 +17,76 @@ const ProjectsPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Projects" />
-      {[true, false].map((inProgress, i) => (
-        <section className="container mb-12" key={i}>
-          <h2
-            className="heading uppercase mb-4 text-4xl"
-            data-text={inProgress ? "In Progress" : "Planned"}
-          >
-            {inProgress ? "In Progress" : "Planned"}
-          </h2>
-          <div>
-            {data.projects.nodes.map(project => {
-              if (project.inProgress === inProgress) {
-                return (
-                  <div
-                    className="flex flex-wrap mb-8"
-                    key={project.slug.current}
-                  >
-                    {project.image ? (
-                      <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
-                        <Image
-                          className="w-full"
-                          style={{ height: "500px" }}
-                          fluid={project.image.asset.fluid}
-                        />
+      {["completed", "current", "planned"].map((status, i) => {
+        let statusText;
+        switch (status) {
+          case "completed":
+            statusText = "Completed";
+            break;
+          case "current":
+            statusText = "In-Progress";
+            break;
+          case "planned":
+            statusText = "Planned";
+            break;
+          default:
+            break;
+        }
+        return (
+          statusText && (
+            <section className="container mb-12" key={i}>
+              <h2
+                className="heading uppercase mb-4 text-4xl"
+                data-text={statusText}
+              >
+                {statusText}
+              </h2>
+              <div>
+                {data.projects.nodes.map(project => {
+                  if (project.status === status) {
+                    return (
+                      <div
+                        className="flex flex-wrap mb-8"
+                        key={project.slug.current}
+                      >
+                        {project.image ? (
+                          <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
+                            <Image
+                              className="w-full"
+                              style={{ height: "500px" }}
+                              fluid={project.image.asset.fluid}
+                            />
+                          </div>
+                        ) : null}
+                        <div className="flex-1">
+                          <h3 className="heading text-3xl mb-1">
+                            {project.title}
+                          </h3>
+                          <Link to={`/projects/${project.slug.current}`}>
+                            <span className="block text-accent text-xl mb-2">
+                              Read More
+                              <FaLongArrowAltRight className="text-2xl inline ml-2" />
+                            </span>
+                          </Link>
+                          <p className="text-xl mb-2 text-secondary-light">
+                            {status == "completed"
+                              ? "Completed:"
+                              : "Estimated Completion:"}
+                            <span className="ml-1">
+                              {dateToString(project.completionDate)}
+                            </span>
+                          </p>
+                          <div className="style-normal">{project.summary}</div>
+                        </div>
                       </div>
-                    ) : null}
-                    <div className="flex-1">
-                      <h3 className="heading text-3xl mb-1">{project.title}</h3>
-                      <Link to={`/projects/${project.slug.current}`}>
-                        <span className="block text-accent text-xl mb-2">
-                          Read More
-                          <FaLongArrowAltRight className="text-2xl inline ml-2" />
-                        </span>
-                      </Link>
-                      <p className="text-xl mb-2 text-secondary-light">
-                        Estimated Completion:
-                        <span className="ml-1">
-                          {dateToString(project.completionDate)}
-                        </span>
-                      </p>
-                      <div className="style-normal">{project.summary}</div>
-                    </div>
-                  </div>
-                );
-              } else return null;
-            })}
-          </div>
-        </section>
-      ))}
+                    );
+                  } else return null;
+                })}
+              </div>
+            </section>
+          )
+        );
+      })}
     </Layout>
   );
 };
@@ -77,7 +99,7 @@ export const query = graphql`
         slug {
           current
         }
-        inProgress
+        status
         title
         completionDate
         image {
