@@ -12,7 +12,7 @@ const OutreachPage = ({ data: { events } }) => {
     <Layout>
       <SEO title="Outreach" />
       <section className="container mb-12">
-        {events.nodes.map((event) => (
+        {events.nodes.map(event => (
           <div className="flex flex-wrap mb-8" key={event.slug.current}>
             {event.image ? (
               <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
@@ -55,7 +55,7 @@ const OutreachPage = ({ data: { events } }) => {
 
 export const query = graphql`
   query {
-    events: allSanityEvent(sort: { fields: date }) {
+    events: allSanityEvent(sort: { fields: date, order: DESC }) {
       nodes {
         title
         slug {

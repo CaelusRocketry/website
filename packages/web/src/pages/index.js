@@ -134,7 +134,7 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section
-        className="w-full md:w-2/3 mx-auto px-8 pb-12"
+        className="w-full lg:w-2/3 mx-auto px-8 pb-12"
         id="home-timeline"
       >
         <h2 className="heading text-4xl mb-8 uppercase" data-text="Timeline">
