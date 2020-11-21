@@ -45,6 +45,11 @@ export default {
       type: "text",
     },
     {
+      title: "Key",
+      name: "key",
+      type: "number",
+    },
+    {
       title: "Description",
       name: "description",
       type: "array",

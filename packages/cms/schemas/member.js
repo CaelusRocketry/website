@@ -22,6 +22,11 @@ export default {
       type: "boolean",
     },
     {
+      title: "Board of Directors",
+      name: "bod",
+      type: "boolean",
+    },
+    {
       title: "Position",
       name: "position",
       type: "string",
