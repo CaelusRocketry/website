@@ -42,46 +42,50 @@ const ProjectsPage = ({ data }) => {
                 {statusText}
               </h2>
               <div>
-                {data.projects.nodes.map(project => {
-                  if (project.status === status) {
-                    return (
-                      <div
-                        className="flex flex-wrap mb-8"
-                        key={project.slug.current}
-                      >
-                        {project.image ? (
-                          <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
-                            <Image
-                              className="w-full"
-                              style={{ height: "500px" }}
-                              fluid={project.image.asset.fluid}
-                            />
+                {data.projects.nodes
+                  .sort((a, b) => a.key - b.key)
+                  .map(project => {
+                    if (project.status === status) {
+                      return (
+                        <div
+                          className="flex flex-wrap mb-8"
+                          key={project.slug.current}
+                        >
+                          {project.image ? (
+                            <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
+                              <Image
+                                className="w-full"
+                                style={{ height: "500px" }}
+                                fluid={project.image.asset.fluid}
+                              />
+                            </div>
+                          ) : null}
+                          <div className="flex-1">
+                            <h3 className="heading text-3xl mb-1">
+                              {project.title}
+                            </h3>
+                            <Link to={`/projects/${project.slug.current}`}>
+                              <span className="block text-accent text-xl mb-2">
+                                Read More
+                                <FaLongArrowAltRight className="text-2xl inline ml-2" />
+                              </span>
+                            </Link>
+                            <p className="text-xl mb-2 text-secondary-light">
+                              {status == "completed"
+                                ? "Completed:"
+                                : "Estimated Completion:"}
+                              <span className="ml-1">
+                                {dateToString(project.completionDate)}
+                              </span>
+                            </p>
+                            <div className="style-normal">
+                              {project.summary}
+                            </div>
                           </div>
-                        ) : null}
-                        <div className="flex-1">
-                          <h3 className="heading text-3xl mb-1">
-                            {project.title}
-                          </h3>
-                          <Link to={`/projects/${project.slug.current}`}>
-                            <span className="block text-accent text-xl mb-2">
-                              Read More
-                              <FaLongArrowAltRight className="text-2xl inline ml-2" />
-                            </span>
-                          </Link>
-                          <p className="text-xl mb-2 text-secondary-light">
-                            {status == "completed"
-                              ? "Completed:"
-                              : "Estimated Completion:"}
-                            <span className="ml-1">
-                              {dateToString(project.completionDate)}
-                            </span>
-                          </p>
-                          <div className="style-normal">{project.summary}</div>
                         </div>
-                      </div>
-                    );
-                  } else return null;
-                })}
+                      );
+                    } else return null;
+                  })}
               </div>
             </section>
           )
@@ -95,6 +99,7 @@ export const query = graphql`
   query {
     projects: allSanityProject(sort: { fields: completionDate }) {
       nodes {
+        key
         summary
         slug {
           current
