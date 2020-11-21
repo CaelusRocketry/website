@@ -40,6 +40,11 @@ export default {
       type: "image",
     },
     {
+      title: "Video",
+      name: "video",
+      type: "url",
+    },
+    {
       title: "Summary",
       name: "summary",
       type: "text",
@@ -78,6 +83,13 @@ export default {
       name: "statistics",
       type: "array",
       of: [{ type: "statistic" }],
+    },
+    {
+      title: "Related Posts",
+      name: "posts",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "post" }] }],
+      validation: (Rule) => Rule.max(3),
     },
   ],
 };

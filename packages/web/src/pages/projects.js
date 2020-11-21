@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import BlockContent from "@sanity/block-content-to-react";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaVideo } from "react-icons/fa";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -70,6 +70,14 @@ const ProjectsPage = ({ data }) => {
                                 <FaLongArrowAltRight className="text-2xl inline ml-2" />
                               </span>
                             </Link>
+                            {project.video ? (
+                              <a href={project.video}>
+                                <span className="block text-accent text-xl mb-2">
+                                  Video
+                                  <FaVideo className="text-2xl inline ml-2" />
+                                </span>
+                              </a>
+                            ) : null}
                             <p className="text-xl mb-2 text-secondary-light">
                               {status == "completed"
                                 ? "Completed:"
@@ -114,6 +122,7 @@ export const query = graphql`
             }
           }
         }
+        video
       }
     }
   }
