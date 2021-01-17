@@ -5,6 +5,12 @@ export default {
   fieldsets: [{ name: "documentation", title: "Documentation" }],
   fields: [
     {
+      title: "Goal",
+      name: "goal",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
       title: "Mission",
       name: "mission",
       type: "array",
