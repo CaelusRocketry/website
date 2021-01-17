@@ -5,8 +5,8 @@ export default {
   fieldsets: [{ name: "documentation", title: "Documentation" }],
   fields: [
     {
-      title: "Goal",
-      name: "goal",
+      title: "Statement",
+      name: "statement",
       type: "array",
       of: [{ type: "block" }],
     },
