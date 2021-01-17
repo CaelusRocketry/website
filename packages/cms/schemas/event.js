@@ -37,5 +37,11 @@ export default {
       name: "location",
       type: "string",
     },
+    {
+      title: "Event Gallery Images",
+      name: "gallery",
+      type: "array",
+      of: [{ type: "picture" }],
+    },
   ],
 };
