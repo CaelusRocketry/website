@@ -55,6 +55,28 @@ export default {
       type: "number",
     },
     {
+      title: "Gallery One Description",
+      name: "galleryOneDescription",
+      type: "text",
+    },
+    {
+      title: "Gallery One Images",
+      name: "galleryOneImages",
+      type: "array",
+      of: [{ type: "picture" }],
+    },
+    {
+      title: "Gallery Two Description",
+      name: "galleryTwoDescription",
+      type: "text",
+    },
+    {
+      title: "Gallery Two Images",
+      name: "galleryTwoImages",
+      type: "array",
+      of: [{ type: "picture" }],
+    },
+    {
       title: "Description",
       name: "description",
       type: "array",
