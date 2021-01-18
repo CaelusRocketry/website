@@ -46,8 +46,12 @@ function IndexPage({ data }) {
                   </span>
                 </h1>
                 <p className="mb-4" style={{ fontSize: "calc(1.5vw + 15px)" }}>
-                  The first high-school group to take a liquid-fuel rocket to
-                  space.
+                  <BlockContent
+                  blocks={data.settings.statement}
+                  serializers={{}}
+                  projectId={process.env.GATSBY_SANITY_ID}
+                  dataset={process.env.GATSBY_SANITY_DATASET}
+                  />
                 </p>
               </div>
               <div className="text-lg">
@@ -231,6 +235,7 @@ export const query = graphql`
       }
     }
     settings: sanitySettings {
+      statement: _rawStatement
       mission: _rawMission
       opensourceMission: _rawOpenSourceMission
       opensourceDocuments: openSourceDocuments {
