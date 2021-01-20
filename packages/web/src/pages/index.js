@@ -62,11 +62,16 @@ function IndexPage({ data }) {
                   </span>
                 </AnchorLink>
                 <AnchorLink href="#home-timeline">
-                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
+                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
                     Timeline
                     <FaLongArrowAltDown className="inline ml-2" />
                   </span>
                 </AnchorLink>
+                <a target="_blank" href="https://www.gofundme.com/f/project-caelus">
+                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
+                    Donate
+                  </span>
+                </a>
               </div>
             </div>
             <div className="w-full lg:w-1/2 border-4 border-accent flex items-center justify-center">
