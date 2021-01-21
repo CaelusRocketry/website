@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby";
 import Image from "gatsby-image";
 import BlockContent from "@sanity/block-content-to-react";
 import { FaLongArrowAltRight, FaVideo } from "react-icons/fa";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -66,8 +68,108 @@ const ProjectPage = ({ data: { project } }) => {
             projectId={process.env.GATSBY_SANITY_ID}
             dataset={process.env.GATSBY_SANITY_DATASET}
           />
-        </div>
+        </div>      
+        <h2 className="heading uppercase mb-2 text-4xl" data-text="Images">
+          Images
+        </h2>
+        {project.galleryOneDescription != null ? (
+          <div 
+            className="style-normal"
+            style={{paddingBottom: "20px"}}
+          >
+            {project.galleryOneDescription}
+        </div>) : null}
+        {project.galleryOneImages != null ? (
+          <div 
+            className="bg-secondary-light text-primary-dark py-12 mb-12"
+            style={{paddingTop: "0px", paddingBottom: "0px"}}
+          >
+              <Carousel
+                ssr={true} // means to render carousel on server-side.
+                infiniteLoop={true}
+                autoPlay={true}
+                dynamicHeight={false}
+                showThumbs={false}
+                showIndicators={true}
+                showStatus={true}
+                // autoPlaySpeed={7000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={5000}
+                className="bg-secondary-light border border-secondary-dark"
+              >
+                {project.galleryOneImages.map(image => (
+                  <div
+                    className="bg-secondary-light relative"
+                    key={image["_key"]}
+                    style={{ height: "400px" }}
+                  >
+                    <Image
+                      fluid={image.asset.fluid}
+                      alt={image.caption}
+                      style={{ height: "100%" }}
+                    />
+                    <p
+                      className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
+                        left-0 w-full border-t border-b border-secondary-dark`}
+                    >
+                      {image.caption}
+                    </p>
+                  </div>
+                ))}
+              </Carousel>
+          </div>) : null}
+          {project.galleryTwoDescription != null ? (
+          <div 
+            className="style-normal"
+            style={{paddingBottom: "20px"}}
+          >
+            {project.galleryTwoDescription}
+        </div>) : null}
+          {project.galleryTwoImages != null ? (
+          <div 
+            className="bg-secondary-light text-primary-dark py-12 mb-12"
+            style={{paddingTop: "0px", paddingBottom: "0px"}}
+          >
+              <Carousel
+                ssr={true} // means to render carousel on server-side.
+                infiniteLoop={true}
+                autoPlay={true}
+                dynamicHeight={false}
+                showThumbs={false}
+                showIndicators={true}
+                showStatus={true}
+                // autoPlaySpeed={7000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={5000}
+                className="bg-secondary-light border border-secondary-dark"
+              >
+                {project.galleryTwoImages.map(image => (
+                  <div
+                    className="bg-secondary-light relative"
+                    key={image["_key"]}
+                    style={{ height: "400px" }}
+                  >
+                    <Image
+                      fluid={image.asset.fluid}
+                      alt={image.caption}
+                      style={{ height: "100%" }}
+                    />
+                    <p
+                      className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
+                        left-0 w-full border-t border-b border-secondary-dark`}
+                    >
+                      {image.caption}
+                    </p>
+                  </div>
+                ))}
+              </Carousel>
+          </div>) : null}
+
       </section>
+
+
       {project.statistics.length > 0 ? (
         <section className="container">
           <h2
@@ -147,6 +249,26 @@ export const query = graphql`
           current
         }
         title
+      }
+      galleryOneDescription
+      galleryOneImages {
+        _key
+        caption
+        asset {
+          fluid {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+      galleryTwoDescription
+      galleryTwoImages {
+        _key
+        caption
+        asset {
+          fluid {
+            ...GatsbySanityImageFluid
+          }
+        }
       }
     }
   }
