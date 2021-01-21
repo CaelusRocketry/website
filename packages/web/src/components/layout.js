@@ -51,16 +51,16 @@ const Header = () => {
               title: "Projects",
             },
             {
+              route: `/outreach`,
+              title: `Outreach`,
+            },
+            {
               route: "/blog",
               title: "Blog",
             },
             {
               route: `/contact`,
               title: `Contact`,
-            },
-            {
-              route: `/outreach`,
-              title: `Outreach`,
             },
           ].map((link) => (
             <Link
