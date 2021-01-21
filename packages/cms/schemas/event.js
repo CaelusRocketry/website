@@ -28,6 +28,19 @@ export default {
       of: [{ type: "block" }, { type: "image" }],
     },
     {
+      title: "Status",
+      name: "status",
+      type: "string",
+      options: {
+        list: [
+          { title: "Past", value: "completed" },
+          { title: "On-Going", value: "current" },
+          { title: "Future", value: "planned" },
+        ],
+        layout: "dropdown",
+      },
+    },
+    {
       title: "Date",
       name: "date",
       type: "datetime",
