@@ -131,13 +131,14 @@ function IndexPage({ data }) {
                   alt={image.caption}
                   style={{ height: "100%" }}
                 />
+                {image.caption != null ? (
                 <p
                   className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
                     left-0 w-full border-t border-b border-secondary-dark`}
                 >
                   {image.caption}
-                </p>
-              </div>
+                </p> ) : null}
+              </div> 
             ))}
           </Carousel>
         </div>
