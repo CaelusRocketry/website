@@ -22,8 +22,14 @@ export default {
       type: "image",
     },
     {
+      title: "Summary",
+      name: "summary",
+      type: "array",
+      of: [{ type: "block" }, { type: "image" }],
+    },
+    {
       title: "Description",
-      name: "description",
+      name: "Description",
       type: "array",
       of: [{ type: "block" }, { type: "image" }],
     },

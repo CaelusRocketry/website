@@ -87,7 +87,7 @@ const OutreachPage = ({ data }) => {
                         </div>
                         <div className="style-normal">
                           <BlockContent
-                            blocks={event.description}
+                            blocks={event.summary}
                             serializers={{}}
                             projectId={process.env.GATSBY_SANITY_ID}
                             dataset={process.env.GATSBY_SANITY_DATASET}
@@ -116,7 +116,7 @@ export const query = graphql`
         slug {
           current
         }
-        description: _rawDescription
+        summary: _rawSummary
         date
         location
         image {
