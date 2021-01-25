@@ -58,7 +58,7 @@ export default {
     },
     {
       title: "Event Gallery Description",
-      name: "gallery",
+      name: "galleryDescription",
       type: "array",
       of: [{ type: "picture" }],
     },
