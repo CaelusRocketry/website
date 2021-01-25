@@ -57,6 +57,12 @@ export default {
       type: "string",
     },
     {
+      title: "Event Gallery Description",
+      name: "gallery",
+      type: "array",
+      of: [{ type: "picture" }],
+    },
+    {
       title: "Event Gallery Images",
       name: "gallery",
       type: "array",
