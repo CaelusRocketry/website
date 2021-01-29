@@ -60,7 +60,7 @@ export default {
       title: "Event Gallery Description",
       name: "galleryDescription",
       type: "array",
-      of: [{ type: "picture" }],
+      of: [{ type: "block" }, { type: "image" }],
     },
     {
       title: "Event Gallery Images",
