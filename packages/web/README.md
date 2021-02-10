@@ -1,5 +1,7 @@
 # Website
 
+The front-end of Project Caelus' website, built with Gatsby.
+
 ## Technologies
 
 - [Gatsby](https://www.gatsbyjs.org/): "Gatsby is a free and open source framework based on React that helps developers build blazing fast websites and apps."
