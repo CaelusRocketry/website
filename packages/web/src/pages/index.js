@@ -22,7 +22,7 @@ function IndexPage({ data }) {
       <section
         className="flex bg-primary-dark z-10 overflow-hidden h-full lg:-mt-16"
         style={{
-          minHeight: "95vh"
+          minHeight: "95vh",
         }}
       >
         <div className="relative" style={{ height: "100%" }}>
@@ -47,10 +47,10 @@ function IndexPage({ data }) {
                 </h1>
                 <p className="mb-4" style={{ fontSize: "calc(1.5vw + 15px)" }}>
                   <BlockContent
-                  blocks={data.settings.statement}
-                  serializers={{}}
-                  projectId={process.env.GATSBY_SANITY_ID}
-                  dataset={process.env.GATSBY_SANITY_DATASET}
+                    blocks={data.settings.statement}
+                    serializers={{}}
+                    projectId={process.env.GATSBY_SANITY_ID}
+                    dataset={process.env.GATSBY_SANITY_DATASET}
                   />
                 </p>
               </div>
@@ -67,7 +67,10 @@ function IndexPage({ data }) {
                     <FaLongArrowAltDown className="inline ml-2" />
                   </span>
                 </AnchorLink>
-                <a target="_blank" href="https://www.gofundme.com/f/project-caelus">
+                <a
+                  target="_blank"
+                  href="https://www.gofundme.com/f/project-caelus"
+                >
                   <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
                     Donate
                   </span>
@@ -81,7 +84,7 @@ function IndexPage({ data }) {
                 style={{
                   height: "50vh",
                   width: "100%",
-                  backgroundSize: "contain"
+                  backgroundSize: "contain",
                 }}
               />
             </div>
@@ -120,7 +123,7 @@ function IndexPage({ data }) {
             transitionDuration={5000}
             className="bg-secondary-light border border-secondary-dark"
           >
-            {data.settings.gallery.map(image => (
+            {data.settings.gallery.map((image) => (
               <div
                 className="bg-secondary-light relative"
                 key={image["_key"]}
@@ -132,13 +135,14 @@ function IndexPage({ data }) {
                   style={{ height: "100%" }}
                 />
                 {image.caption != null ? (
-                <p
-                  className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
+                  <p
+                    className={`bg-secondary-light py-4 mb-12 absolute bottom-0 
                     left-0 w-full border-t border-b border-secondary-dark`}
-                >
-                  {image.caption}
-                </p> ) : null}
-              </div> 
+                  >
+                    {image.caption}
+                  </p>
+                ) : null}
+              </div>
             ))}
           </Carousel>
         </div>
@@ -151,7 +155,7 @@ function IndexPage({ data }) {
           Timeline
         </h2>
         <Timeline lineColor={"#C7CACB"} className="w-full" animate={false}>
-          {data.timeline.nodes.map(timelineItem => (
+          {data.timeline.nodes.map((timelineItem) => (
             <TimelineItem
               key={timelineItem.key}
               dateText={timelineItem.date}
@@ -159,7 +163,7 @@ function IndexPage({ data }) {
                 background: "#ddd",
                 padding: "20px",
                 borderRadius: "2px",
-                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)"
+                boxShadow: "0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2)",
               }}
               dateInnerStyle={
                 timelineItem.finished
@@ -168,7 +172,7 @@ function IndexPage({ data }) {
               }
               style={{
                 width: "100%",
-                color: timelineItem.finished ? "#435058" : "#F72C25"
+                color: timelineItem.finished ? "#435058" : "#F72C25",
               }}
             >
               {timelineItem.image && (

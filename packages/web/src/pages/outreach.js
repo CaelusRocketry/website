@@ -41,63 +41,62 @@ const OutreachPage = ({ data }) => {
                 {statusText}
               </h2>
               <div>
-              {data.events.nodes
-                .sort((a,b) =>a.key - b.key)
-                .map(event => {
-                  if (event.status === status){
-                    return (
-                      <div 
-                      className="flex flex-wrap mb-8" 
-                      key={event.slug.current}
-                    >
-                      
-                      {event.image ? (
-                        <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
-                          <Image 
-                            className="w-full" 
-                            fluid={event.image.asset.fluid} 
-                          />
-                        </div>
-                      ) : null}
-                      <div className="flex-1">
-                        <h3 className="heading text-3xl mb-1">
-                          {event.title}
-                        </h3>
-                        {/* <Link to={`/projects/${project.slug.current}`}>
+                {data.events.nodes
+                  .sort((a, b) => a.key - b.key)
+                  .map((event) => {
+                    if (event.status === status) {
+                      return (
+                        <div
+                          className="flex flex-wrap mb-8"
+                          key={event.slug.current}
+                        >
+                          {event.image ? (
+                            <div className="mt-4 mb-4 w-full lg:w-1/3 lg:flex mr-6">
+                              <Image
+                                className="w-full"
+                                fluid={event.image.asset.fluid}
+                              />
+                            </div>
+                          ) : null}
+                          <div className="flex-1">
+                            <h3 className="heading text-3xl mb-1">
+                              {event.title}
+                            </h3>
+                            {/* <Link to={`/projects/${project.slug.current}`}>
                           <span className="block text-accent text-xl mb-2">
                             Read More
                             <FaLongArrowAltRight className="text-2xl inline ml-2" />
                           </span>
                         </Link> */}
-                        <div className="text-xl text-secondary-light">
-                          {event.date !== null ? (
-                            <p className="mb-2">
-                              <FaRegCalendar className="inline -mt-1 mr-2" />
-                              <span className="ml-1">
-                                {new Date(event.date).toLocaleString()}
-                              </span>
-                            </p>
-                          ) : null}
-                          {event.location !== null ? (
-                            <p className="mb-2">
-                              <FaMapMarkerAlt className="inline -mt-1 mr-2" />
-                              <span className="ml-1">{event.location}</span>
-                            </p>
-                          ) : null}
+                            <div className="text-xl text-secondary-light">
+                              {event.date !== null ? (
+                                <p className="mb-2">
+                                  <FaRegCalendar className="inline -mt-1 mr-2" />
+                                  <span className="ml-1">
+                                    {new Date(event.date).toLocaleString()}
+                                  </span>
+                                </p>
+                              ) : null}
+                              {event.location !== null ? (
+                                <p className="mb-2">
+                                  <FaMapMarkerAlt className="inline -mt-1 mr-2" />
+                                  <span className="ml-1">{event.location}</span>
+                                </p>
+                              ) : null}
+                            </div>
+                            <div className="style-normal">
+                              <BlockContent
+                                blocks={event.summary}
+                                serializers={{}}
+                                projectId={process.env.GATSBY_SANITY_ID}
+                                dataset={process.env.GATSBY_SANITY_DATASET}
+                              />
+                            </div>
+                          </div>
                         </div>
-                        <div className="style-normal">
-                          <BlockContent
-                            blocks={event.summary}
-                            serializers={{}}
-                            projectId={process.env.GATSBY_SANITY_ID}
-                            dataset={process.env.GATSBY_SANITY_DATASET}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    )
-                  }
-              })}
+                      );
+                    }
+                  })}
               </div>
             </section>
           )

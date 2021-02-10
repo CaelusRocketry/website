@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const ProjectsPage = ({ data }) => {
-  const dateToString = dateString => {
+  const dateToString = (dateString) => {
     const date = new Date(dateString);
     const month = date.toLocaleString("default", { month: "long" });
     return `${month} ${date.getFullYear()}`;
@@ -44,7 +44,7 @@ const ProjectsPage = ({ data }) => {
               <div>
                 {data.projects.nodes
                   .sort((a, b) => a.key - b.key)
-                  .map(project => {
+                  .map((project) => {
                     if (project.status === status) {
                       return (
                         <div
