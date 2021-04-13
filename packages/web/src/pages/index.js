@@ -46,7 +46,7 @@ function IndexPage({ data }) {
                   </span>
                 </h1>
                 <div style={{padding:"25px", backgroundColor: "#c70000"}}>
-                  <p className="mb-4" style={{ fontSize: "calc(1.5vw + 10px)", paddingBottom: "13px"}}>
+                  <p className="mb-4" style={{ fontSize: "calc(.9vw + 15px)", paddingBottom: "13px"}}>
                     <BlockContent
                       blocks={data.settings.statement}
                       serializers={{}}
@@ -54,7 +54,7 @@ function IndexPage({ data }) {
                       dataset={process.env.GATSBY_SANITY_DATASET}
                     />
                   </p>
-                  <p style={{color: "white", fontSize: "calc(1.5vw + 5px)", display: "inline", paddingRight: "20px"}}>
+                  <p style={{color: "white", fontSize: "calc(.9vw + 15px)", display: "inline", paddingRight: "20px"}}>
                     Send us to the stars by supporting our mission today!  
                   </p>
                   <a 
