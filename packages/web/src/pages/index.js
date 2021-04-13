@@ -36,7 +36,7 @@ function IndexPage({ data }) {
               <div>
                 <h1
                   className="uppercase leading-snug mb-2"
-                  style={{ fontSize: "calc(4vw + 30px)" }}
+                  style={{ fontSize: "calc(4vw + 30px)", marginBottom: "20px" }}
                 >
                   <span className="heading" data-text="Project">
                     Project
@@ -45,22 +45,36 @@ function IndexPage({ data }) {
                     Caelus
                   </span>
                 </h1>
-                <p className="mb-4" style={{ fontSize: "calc(1.5vw + 15px)" }}>
-                  <BlockContent
-                    blocks={data.settings.statement}
-                    serializers={{}}
-                    projectId={process.env.GATSBY_SANITY_ID}
-                    dataset={process.env.GATSBY_SANITY_DATASET}
-                  />
-                </p>
-                <a 
-                  className="transition opacity-75 hover:opacity-100 p-2 border-4 border-secondary-light"
-                  style={{textAlign: "center", backgroundColor: "white", display: "block", borderColor: "#0e1320", color: "#0e1320", fontSize: "25px"}}
-                  href="https://charity.gofundme.com/o/en/donate-widget/30898"
-                  target="_blank"
-                >
-                  Donate
-                </a>
+                <div style={{padding:"25px", backgroundColor: "#c70000"}}>
+                  <p className="mb-4" style={{ fontSize: "calc(1.5vw + 10px)", paddingBottom: "13px"}}>
+                    <BlockContent
+                      blocks={data.settings.statement}
+                      serializers={{}}
+                      projectId={process.env.GATSBY_SANITY_ID}
+                      dataset={process.env.GATSBY_SANITY_DATASET}
+                    />
+                  </p>
+                  <p style={{color: "white", fontSize: "calc(1.5vw + 5px)", display: "inline", paddingRight: "20px"}}>
+                    Send us to the stars by supporting our mission today!  
+                  </p>
+                  <a 
+                    className="transition opacity-75 hover:opacity-100 p-2 border-4 border-secondary-light"
+                    style={{
+                      textAlign: "center", 
+                      backgroundColor: "#6e0000", 
+                      borderColor: "white", 
+                      color: "white", 
+                      fontSize: "25px", 
+                      display: "block",
+                      marginTop: "20px"
+                    }}
+                    href="https://charity.gofundme.com/o/en/donate-widget/30898"
+                    target="_blank"
+                  >
+                    Donate
+                  </a>
+                </div>
+
               </div>
               <div className="text-lg" style={{marginTop: "30px"}}>
                 
