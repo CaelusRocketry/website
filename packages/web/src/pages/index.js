@@ -53,8 +53,17 @@ function IndexPage({ data }) {
                     dataset={process.env.GATSBY_SANITY_DATASET}
                   />
                 </p>
+                <a 
+                  className="transition opacity-75 hover:opacity-100 p-2 border-4 border-secondary-light"
+                  style={{textAlign: "center", backgroundColor: "white", display: "block", borderColor: "#0e1320", color: "#0e1320", fontSize: "25px"}}
+                  href="https://charity.gofundme.com/o/en/donate-widget/30898"
+                  target="_blank"
+                >
+                  Donate
+                </a>
               </div>
-              <div className="text-lg">
+              <div className="text-lg" style={{marginTop: "30px"}}>
+                
                 <AnchorLink href="#home-mission">
                   <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
                     Mission
@@ -71,9 +80,7 @@ function IndexPage({ data }) {
                   target="_blank"
                   href="https://www.gofundme.com/f/project-caelus"
                 >
-                  <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light">
-                    Donate
-                  </span>
+
                 </a>
               </div>
             </div>
