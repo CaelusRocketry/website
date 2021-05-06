@@ -176,7 +176,9 @@ function IndexPage({ data }) {
           Timeline
         </h2>
         <Timeline lineColor={"#C7CACB"} className="w-full" animate={false}>
-          {data.timeline.nodes.map((timelineItem) => (
+          {data.timeline.nodes
+          .sort((a, b) => a.key - b.key)
+          .map((timelineItem) => (
             <TimelineItem
               key={timelineItem.key}
               dateText={timelineItem.date}
