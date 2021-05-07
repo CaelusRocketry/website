@@ -35,17 +35,20 @@ function IndexPage({ data }) {
             <div className="bg-accent p-6 lg:p-12 w-full lg:w-1/2 z-10 flex flex-col justify-between">
               <div>
                 <h1
-                  className="uppercase leading-snug mb-2"
-                  style={{ fontSize: "calc(4vw + 30px)", marginBottom: "20px" }}
+                  className="uppercase leading-snug mb-2" className="heading"
+                  style={{ fontSize: "calc(4vw + 30px)", fontWeight: "bolder"}}
                 >
-                  <span className="heading" data-text="Project">
-                    Project
-                  </span>{" "}
-                  <span className="heading" data-text="Caelus">
-                    Caelus
+                  <span style={{marginBottom: "10px", lineHeight: "10px"}}>
+                    PROJECT
+                  </span>
+                  {" "}
+                  <span>
+                    CAELUS
                   </span>
                 </h1>
-                <div style={{padding:"25px", backgroundColor: "#c70000"}}>
+                <div 
+                  // style={{padding:"25px", backgroundColor: "#c70000"}}
+                >
                   <p className="mb-4" style={{ fontSize: "calc(.9vw + 15px)", paddingBottom: "13px"}}>
                     <BlockContent
                       blocks={data.settings.statement}
@@ -54,7 +57,7 @@ function IndexPage({ data }) {
                       dataset={process.env.GATSBY_SANITY_DATASET}
                     />
                   </p>
-                  <p style={{color: "white", fontSize: "calc(.9vw + 15px)", display: "inline", paddingRight: "20px"}}>
+                  {/* <p style={{color: "white", fontSize: "calc(.9vw + 15px)", display: "inline", paddingRight: "20px"}}>
                     Send us to the stars by supporting our mission today!  
                   </p>
                   <a 
@@ -72,10 +75,10 @@ function IndexPage({ data }) {
                     target="_blank"
                   >
                     Donate
-                  </a>
+                  </a> */}
                 </div>
 
-              </div>
+              </div> 
               <div className="text-lg" style={{marginTop: "30px"}}>
                 
                 <AnchorLink href="#home-mission">

@@ -36,6 +36,7 @@ const Header = () => {
           className={`${
             isExpanded ? `block` : `hidden`
           } md:block md:flex md:items-center w-full md:w-auto`}
+          style={{textAlign: "center"}}
         >
           {[
             {
@@ -71,7 +72,32 @@ const Header = () => {
               {link.title}
             </Link>
           ))}
+          <div style={{marginLeft: isExpanded ? `0` : `30px`}}>
+            <a 
+              className="transition opacity-75 hover:opacity-100 p-2 border-4 border-secondary-light"
+              style={{
+                textAlign: "center", 
+                borderRadius: "10px",
+                borderColor: "white", 
+                color: "white", 
+                fontSize: "15px", 
+                display: "block",
+                margin: "10px auto",
+                border: "10px",
+                width: "90px",
+                backgroundColor: "red",
+                fontWeight: "bolder"
+
+              }}
+              href="https://charity.gofundme.com/o/en/donate-widget/30898"
+              target="_blank"
+            >
+              Donate
+            </a>
+          </div>
+
         </nav>
+
       </div>
     </header>
   );
