@@ -95,7 +95,7 @@ function IndexPage({ data }) {
                 </AnchorLink>
                 <a
                   target="_blank"
-                  href="https://www.gofundme.com/f/project-caelus"
+                  href="https://www.gofundme.com/f/project-caelus" rel="noreferrer"
                 >
 
                 </a>

@@ -90,7 +90,7 @@ const Header = () => {
 
               }}
               href="https://charity.gofundme.com/o/en/donate-widget/30898"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               Donate
             </a>
