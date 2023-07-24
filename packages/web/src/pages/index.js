@@ -89,7 +89,7 @@ function IndexPage({ data }) {
                 </AnchorLink>
                 <AnchorLink href="#home-timeline">
                   <span className="transition opacity-75 hover:opacity-100 inline-block p-2 border-4 border-secondary-light mr-4 mb-4 md:mb-0">
-                    Timeline
+                    ChickenNuggets
                     <FaLongArrowAltDown className="inline ml-2" />
                   </span>
                 </AnchorLink>
