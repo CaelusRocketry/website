@@ -15,7 +15,7 @@ const BlogPageItem = ({ post }) => (
         <FaLongArrowAltRight className="text-2xl inline ml-2" />
       </span>
     </Link>
-    <p className="text-xl mb-2 text-secondary-light">
+    <p className="text-xl mb-2 text-secondary-dark">
       Written on
       <span className="ml-1">{new Date(post.date).toLocaleDateString()}</span>
     </p>

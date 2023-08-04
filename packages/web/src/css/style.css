@@ -9,12 +9,13 @@
 @import "./heading.css";
 @import "./stars.css";
 
+
 .transition {
   transition: 0.3s all ease;
 }
 
 .container {
-  @apply w-full mx-auto px-8;
+  @apply w-full mx-auto px-8 text-black;
 }
 @screen md {
   .container {

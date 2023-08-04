@@ -3,15 +3,15 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { FaFacebook, FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
 
-import Logo from "../../static/brand/banner/banner_COLOR-T.svg";
+import Logo from "../../static/brand/banner/banner_COLOR-W-T.png";
 
 const Header = () => {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
-    <header className="bg-transparent z-10">
+    <header className="bg-primary-dark z-10">
       <div className="flex flex-wrap items-center justify-between max-w-5xl mx-auto p-4 md:p-8">
-        <Link className="flex items-center no-underline text-black" to="/">
+        <Link className="flex items-center no-underline text-white" to="/">
           <img src={Logo} className="mr-4 h-10 md:py-0 py-1" />
           <p className="font-bold text-xl tracking-tight whitespace-no-wrap md:block hidden">
             Caelus Rocketry
@@ -19,7 +19,7 @@ const Header = () => {
         </Link>
 
         <button
-          className="block md:hidden border border-black flex items-center px-3 py-2 rounded text-black"
+          className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white"
           onClick={() => toggleExpansion(!isExpanded)}
         >
           <svg
@@ -69,7 +69,7 @@ const Header = () => {
             // },
           ].map((link) => (
             <Link
-              className="block md:inline-block mt-4 md:mt-0 md:ml-6 no-underline text-black"
+              className="block md:inline-block mt-4 md:mt-0 md:ml-6 no-underline text-white"
               key={link.title}
               to={link.route}
             >

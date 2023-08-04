@@ -9,8 +9,8 @@ import {
   FaUserAlt,
 } from "react-icons/fa";
 
-import Layout from "../../components/layout";
-import SEO from "../../components/seo";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 // Fisher-Yates shuffle for use on members
 const shuffle = (input) => {

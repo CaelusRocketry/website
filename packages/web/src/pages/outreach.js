@@ -68,7 +68,7 @@ const OutreachPage = ({ data }) => {
                             <FaLongArrowAltRight className="text-2xl inline ml-2" />
                           </span>
                         </Link> */}
-                            <div className="text-xl text-secondary-light">
+                            <div className="text-xl text-secondary-dark">
                               {event.date !== null ? (
                                 <p className="mb-2">
                                   <FaRegCalendar className="inline -mt-1 mr-2" />

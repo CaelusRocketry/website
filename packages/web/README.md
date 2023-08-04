@@ -1,6 +1,6 @@
 # Website
 
-The front-end of Project Caelus' website, built with Gatsby.
+The front-end of Caelus Rocketry's website, built with Gatsby.
 
 ## Technologies
 

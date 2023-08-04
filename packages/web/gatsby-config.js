@@ -1,11 +1,11 @@
-require("dotenv").config();
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Project Caelus`,
+    title: `Caelus Rocketry`,
     description: `Taking the world's first high school liquid-fueled rocket to the edge of space.`,
-    author: `Project Caelus`,
-    keywords: [`rocketry`, `rocket`, `high-school`, `caelus`, `project caelus`],
+    author: `Caelus Rocketry`,
+    keywords: [`rocketry`, `rocket`, `liquid fueled`, `high school`, `caelus`, `project caelus`, 'caelus rocketry'],
   },
   plugins: [
     {
@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Project Caelus`,
-        short_name: `Project Caelus`,
+        name: `Caelus Rocketry`,
+        short_name: `Caelus Rocketry`,
         start_url: `/`,
         background_color: `#0D1321`,
         theme_color: `#C7CACB`,

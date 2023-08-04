@@ -78,7 +78,7 @@ const ProjectsPage = ({ data }) => {
                                 </span>
                               </a>
                             ) : null}
-                            <p className="text-xl mb-2 text-secondary-light">
+                            <p className="text-xl mb-2 text-secondary-dark">
                               {status == "completed"
                                 ? "Completed:"
                                 : "Estimated Completion:"}

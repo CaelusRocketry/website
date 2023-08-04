@@ -8,7 +8,7 @@ import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { FaLongArrowAltDown, FaLongArrowAltRight } from "react-icons/fa";
 
-import Layout from "../components/layout";
+import Layout from "../components/index-layout";
 import SEO from "../components/seo";
 const BlockContent = require("@sanity/block-content-to-react");
 
@@ -16,7 +16,7 @@ function IndexPage({ data }) {
   return (
     <Layout>
       <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        keywords={[`rocketry`, `rocket`, `liquid fueled`, `high school`, `caelus`, `project caelus`, 'caelus rocketry']}
         title="Home"
       />
       <section
@@ -39,11 +39,11 @@ function IndexPage({ data }) {
                   style={{ fontSize: "calc(4vw + 30px)", fontWeight: "bolder"}}
                 >
                   <span style={{marginBottom: "10px", lineHeight: "10px"}}>
-                    PROJECT
+                    CAELUS
                   </span>
                   {" "}
                   <span>
-                    CAELUS
+                    ROCKETRY
                   </span>
                 </h1>
                 <div 
@@ -95,7 +95,7 @@ function IndexPage({ data }) {
                 </AnchorLink>
                 <a
                   target="_blank"
-                  href="https://www.gofundme.com/f/project-caelus" rel="noreferrer"
+                  href="https://www.gofundme.com/f/support-project-caelus-hs-liquid-fueled-rocket" rel="noreferrer"
                 >
 
                 </a>
@@ -116,7 +116,7 @@ function IndexPage({ data }) {
         </div>
       </section>
       <section
-        className="bg-secondary-light text-primary-dark py-12 mb-12"
+        className="bg-primary-light text-primary-dark py-12 mb-12"
         id="home-mission"
       >
         <div className="container pb-12">
@@ -228,9 +228,9 @@ function IndexPage({ data }) {
         <div className="container">
           <h2
             className="heading text-4xl mb-4 uppercase"
-            data-text="Open-Source"
+            data-text="Publications"
           >
-            Open-Source
+            Publications
           </h2>
           <div className="style-normal">
             <BlockContent

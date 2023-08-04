@@ -2,8 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import Image from "gatsby-image";
 
-import Layout from "../../components/layout";
-import SEO from "../../components/seo";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const SponsorsPage = ({ data }) => {
   const color = (level) => {
@@ -43,11 +43,11 @@ const SponsorsPage = ({ data }) => {
                         <Image
                           fluid={sponsor.image.asset.fluid}
                           alt={sponsor.name}
-                          className="transition mb-4 border opacity-75 hover:opacity-100"
+                          className="transition mb-4 opacity-75 hover:opacity-100"
                           imgStyle={{ objectFit: "contain" }}
                           style={{ height: "200px" }}
                         />
-                        <h3 className="text-3xl">{sponsor.name}</h3>
+                       {/*<h3 className="text-3xl">{sponsor.name}</h3>*/}
                       </a>
                     </div>
                   );
